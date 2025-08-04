@@ -1,0 +1,25 @@
+{
+    "profileRevision": 1,
+    "profileId": "common_public",
+    "profileChangesBaseRevision": 1,
+    "profileChanges": [
+        {
+            "changeType": "fullProfileUpdate",
+            "profile": {
+                "created": "2018-04-06T00:42:45.543Z",
+                "updated": "2023-03-23T14:33:30.059Z",
+                "rvn": 1,
+                "wipeNumber": 1,
+                "accountId": "USER_ID",
+                "profileId": "common_public",
+                "version": "outpost_name_wipe_march_2023",
+                "stats": {},
+                "items": {},
+                "commandRevision": 0
+            }
+        }
+    ],
+    "profileCommandRevision": 0,
+    "serverTime": "2024-12-08T01:04:41.154Z",
+    "responseVersion": 1
+}

@@ -1,0 +1,26 @@
+{
+    "profileRevision": 1,
+    "profileId": "theater2",
+    "profileChangesBaseRevision": 1,
+    "profileChanges": [{
+        "changeType": "fullProfileUpdate",
+        "profile": {
+            "created": "2018-04-08T13:21:53.823Z",
+            "updated": "2024-12-01T23:38:37.434Z",
+            "rvn": 1,
+            "wipeNumber": 1,
+            "accountId": "USER_ID",
+            "profileId": "theater2",
+            "version": "",
+            "stats": {
+                "attributes": {}
+            },
+            "items": {},
+            "profileLockExpiration": "0001-01-01T00:00:00.000Z",
+            "commandRevision": 0
+        }
+    }],
+    "profileCommandRevision": 0,
+    "serverTime": "2024-12-08T01:29:40.009Z",
+    "responseVersion": 1
+}

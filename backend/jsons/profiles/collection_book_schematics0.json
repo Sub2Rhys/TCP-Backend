@@ -1,0 +1,27 @@
+{
+    "profileRevision": 1,
+    "profileId": "collection_book_schematics0",
+    "profileChangesBaseRevision": 1,
+    "profileChanges": [
+        {
+            "changeType": "fullProfileUpdate",
+            "profile": {
+                "created": "2018-04-08T13:21:51.101Z",
+                "updated": "2024-12-01T22:48:01.070Z",
+                "rvn": 1,
+                "wipeNumber": 1,
+                "accountId": "USER_ID",
+                "profileId": "collection_book_schematics0",
+                "version": "",
+                "stats": {
+                    "attributes": {}
+                },
+                "items": {},
+                "commandRevision": 0
+            }
+        }
+    ],
+    "profileCommandRevision": 0,
+    "serverTime": "2024-12-08T01:28:15.463Z",
+    "responseVersion": 1
+}

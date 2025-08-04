@@ -1,0 +1,27 @@
+{
+    "profileRevision": 1,
+    "profileId": "campaign",
+    "profileChangesBaseRevision": 1,
+    "profileChanges": [
+        {
+            "changeType": "fullProfileUpdate",
+            "profile": {
+                "created": "2018-04-06T00:42:48.018Z",
+                "updated": "2024-12-01T23:39:37.999Z",
+                "rvn": 1,
+                "wipeNumber": 1,
+                "accountId": "USER_ID",
+                "profileId": "campaign",
+                "version": "",
+                "stats": {
+                    "attributes": {}
+                },
+                "items": {},
+                "commandRevision": 0
+            }
+        }
+    ],
+    "profileCommandRevision": 0,
+    "serverTime": "2024-12-08T01:05:07.477Z",
+    "responseVersion": 1
+}

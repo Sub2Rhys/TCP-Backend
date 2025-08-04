@@ -1,0 +1,31 @@
+{
+    "port": 8080,
+    "database_url": "mongodb://127.0.0.1/backend",
+    "backend": {
+        "season": 2,
+        "xmpp": {
+            "address": "127.0.0.1",
+            "port": 80
+        },
+        "gameserver": {
+            "address": "127.0.0.1",
+            "port": 7777
+        }
+    },
+    "discord": {
+        "admins": [],
+        "hoster_role": "",
+        "main_guild": "",
+        "bot": {
+            "client_id": "",
+            "token": ""
+        },
+        "debug": false
+    },
+    "openfire": {
+        "admin_username": "xmpp-admin",
+        "admin_password": null,
+        "domain": null
+    },
+    "github_secret": null
+}

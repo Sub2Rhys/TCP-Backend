@@ -1,0 +1,184 @@
+{
+    "profileRevision": 1,
+    "profileId": "athena",
+    "profileChangesBaseRevision": 1,
+    "profileChanges": [
+        {
+            "changeType": "fullProfileUpdate",
+            "profile": {
+                "created": "2018-04-06T00:42:48.010Z",
+                "updated": "2024-12-08T02:21:42.290Z",
+                "rvn": 1,
+                "wipeNumber": 1,
+                "accountId": "USER_ID",
+                "profileId": "athena",
+                "version": "",
+                "stats": {
+                    "attributes": {
+                        "season_num": 3,
+                        "season_update": 1,
+                        "season_match_boost": 0,
+                        "season_friend_match_boost": 0,
+                        "inventory_limit_bonus": 0,
+                        "xp": 0,
+                        "book_purchased": false,
+                        "book_level": 1,
+                        "book_xp": 1,
+                        "battlestars": 0,
+                        "battlestars_season_total": 0,
+                        "style_points": 0,
+                        "lifetime_wins": 0,
+                        "level": 1,
+                        "accountLevel": 0,
+                        "mfa_reward_claimed": true,
+                        "active_loadout_index": 0,
+                        "last_applied_loadout": "",
+                        "purchased_bp_offers": [],
+                        "past_seasons": [],
+                        "loadouts": [],
+                        "quest_manager": {
+                            "dailyLoginInterval": "0001-01-01T00:00:00.000Z",
+                            "dailyQuestRerolls": 1
+                        },
+                        "party_assist_quest": "",
+                        "pinned_quest": "",
+                        "daily_rewards": {},
+                        "favorite_victorypose": "",
+                        "favorite_consumableemote": "",
+                        "favorite_callingcard": "",
+                        "favorite_character": "",
+                        "favorite_spray": [],
+                        "favorite_loadingscreen": "",
+                        "favorite_hat": "",
+                        "favorite_battlebus": "",
+                        "favorite_mapmarker": "",
+                        "favorite_vehicledeco": "",
+                        "favorite_backpack": "",
+                        "favorite_dance": [
+                            "AthenaDance:eid_dancemoves",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "favorite_skydivecontrail": "",
+                        "favorite_pickaxe": "AthenaPickaxe:defaultpickaxe",
+                        "favorite_glider": "AthenaGlider:defaultglider",
+                        "favorite_musicpack": "",
+                        "favorite_itemwraps": [
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rested_xp_overflow": 0,
+                        "permissions": [],
+                        "purchased_battle_pass_tier_offers": [],
+                        "rested_xp_exchange": 0.333,
+                        "xp_overflow": 0,
+                        "rested_xp": 0,
+                        "rested_xp_mult": 0,
+                        "competitive_identity": {}
+                    }
+                },
+                "items": {
+                    "AthenaGlider:defaultglider": {
+                        "templateId": "AthenaGlider:defaultglider",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaPickaxe:defaultpickaxe": {
+                        "templateId": "AthenaPickaxe:defaultpickaxe",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaDance:eid_dancemoves": {
+                        "templateId": "AthenaDance:eid_dancemoves",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaCharacter:cid_random": {
+                        "templateId": "AthenaCharacter:cid_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaBackpack:bid_random": {
+                        "templateId": "AthenaBackpack:bid_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaPickaxe:pickaxe_random": {
+                        "templateId": "AthenaPickaxe:pickaxe_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaGlider:glider_random": {
+                        "templateId": "AthenaGlider:glider_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaSkyDiveContrail:trails_random": {
+                        "templateId": "AthenaSkyDiveContrail:trails_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaItemWrap:wrap_random": {
+                        "templateId": "AthenaItemWrap:wrap_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaMusicPack:musicpack_random": {
+                        "templateId": "AthenaMusicPack:musicpack_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    },
+                    "AthenaLoadingScreen:lsid_random": {
+                        "templateId": "AthenaLoadingScreen:lsid_random",
+                        "attributes": {
+                            "item_seen": true,
+                            "variants": []
+                        },
+                        "quantity": 1
+                    }
+                }
+            },
+            "profileCommandRevision": 0,
+            "serverTime": "2024-12-08T02:24:12.396Z",
+            "responseVersion": 1
+        }
+    ]
+}
