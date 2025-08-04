@@ -111,15 +111,15 @@ Make sure these boxes are ticked then save.
 
 Go to `Plugins > Available Plugins` and install `REST API`
 
-<img width="301" height="57" alt="image" src="https://github.com/user-attachments/assets/8b5153de-5b8e-48f3-9cab-6d57bf934901" />
+<img width="301" height="57" alt="8b5153de-5b8e-48f3-9cab-6d57bf934901" src="https://github.com/user-attachments/assets/7a1fd1bc-0c22-4473-8a89-8c0c8fbf8c3a" />
 
 Go back `Server > Server Settings` and you should see a `Rest API` button on the left.
 
-<img width="147" height="39" alt="image" src="https://github.com/user-attachments/assets/62dca7f0-f584-4fc8-b72a-db0eab42d966" />
+<img width="147" height="39" alt="62dca7f0-f584-4fc8-b72a-db0eab42d966" src="https://github.com/user-attachments/assets/2d234bce-be58-4e7d-9594-b699b768babd" />
 
 Click this and copy my settings exactly.
 
-<img width="760" height="576" alt="image" src="https://github.com/user-attachments/assets/d2ca2cb1-dae8-4537-945a-bd256615d9fa" />
+<img width="760" height="576" alt="d2ca2cb1-dae8-4537-945a-bd256615d9fa" src="https://github.com/user-attachments/assets/014a5fea-335c-4c8c-92bb-8c34c9bd1745" />
 
 ---
 
@@ -130,34 +130,34 @@ Pay close attention to the order I put these in, I had issues myself with this f
 
 Go to `Server > TLS Certificates` and click `Manage Store Contents` (the top one).
 
-<img width="424" height="479" alt="image" src="https://github.com/user-attachments/assets/a364c94a-9c70-42d3-8e95-2a876f9d04a1" />
+<img width="424" height="479" alt="a364c94a-9c70-42d3-8e95-2a876f9d04a1" src="https://github.com/user-attachments/assets/5cdf6e1a-048d-44ef-ae62-7f1bb7070029" />
 
 By default, a self-signed certificate has been generated. Delete this.
 
-<img width="1559" height="389" alt="image" src="https://github.com/user-attachments/assets/617d838a-80f4-46a0-9be3-4b485390567c" />
+<img width="1559" height="389" alt="617d838a-80f4-46a0-9be3-4b485390567c" src="https://github.com/user-attachments/assets/013ab734-3a0d-41d5-8dea-72bc66dc7ce1" />
 
 Now click this link here.
 
-<img width="103" height="38" alt="image" src="https://github.com/user-attachments/assets/6d35ea0f-c183-4ada-8cd2-5a9df9f794a5" />
+<img width="103" height="38" alt="6d35ea0f-c183-4ada-8cd2-5a9df9f794a5" src="https://github.com/user-attachments/assets/16bc181f-800d-47a6-ad78-996360849bbe" />
 
 Paste the contents of the files you got from ZeroSSL earlier. It's painfully important it's in the right order, I don't want you to encounter the same issues I did.
 
 In the second box `ca_bundle.crt` content must be ABOVE the `certificate.crt` content while both being in the same box
 
-<img width="814" height="795" alt="image" src="https://github.com/user-attachments/assets/5d949774-e463-4f1a-80ba-fd321640612c" />
+<img width="814" height="795" alt="5d949774-e463-4f1a-80ba-fd321640612c" src="https://github.com/user-attachments/assets/b50e87a7-4bb4-430e-9409-a4cc014ffc66" />
 
-<img width="813" height="796" alt="image" src="https://github.com/user-attachments/assets/13651c02-f902-443b-9122-e251534d28ee" />
+<img width="813" height="796" alt="13651c02-f902-443b-9122-e251534d28ee" src="https://github.com/user-attachments/assets/e81763e0-cf37-4941-a4d1-e7fb098dd1d9" />
 
 This should be your certificates all set up now.
 
 ## Openfire User Presence
 To allow users to share their presence (status) with eachother, you must go to `Users/Groups > Groups` and create a new group called `users`.
 
-<img width="578" height="416" alt="image" src="https://github.com/user-attachments/assets/58d12259-ec29-4046-bfe2-e9b875543c0a" />
+<img width="578" height="416" alt="58d12259-ec29-4046-bfe2-e9b875543c0a" src="https://github.com/user-attachments/assets/d69cf322-05bf-4c3d-869e-845e6f2437c4" />
 
 Once created, edit the group and copy what I've done.
 
-<img width="440" height="445" alt="image" src="https://github.com/user-attachments/assets/a2d9b5bc-b2b6-4763-8e1f-3677b0cc3986" />
+<img width="440" height="445" alt="a2d9b5bc-b2b6-4763-8e1f-3677b0cc3986" src="https://github.com/user-attachments/assets/3d73a6b8-82b8-4ec1-8b01-94d6909fd7ab" />
 
 ---
 
@@ -165,20 +165,20 @@ For things like live friend requests and gifts, it requires a specific user to b
 
 The user MUST be called `xmpp-admin` with admin permissions, the password can be anything but **remember it for later**.
 
-<img width="372" height="309" alt="image" src="https://github.com/user-attachments/assets/d9a0b49a-48da-407a-ad48-1efe40ef995b" />
+<img width="372" height="309" alt="d9a0b49a-48da-407a-ad48-1efe40ef995b" src="https://github.com/user-attachments/assets/bf5c3c7a-2054-4b06-bbcd-f1c1a617392e" />
 
 # Configuring The Backend
 My best advice is to restart Openfire after you've configured everything to ensure everythings working and updated (you can search for Openfire in task manager and close it)
 
 Assuming you're someone who's used LawinV2 or Reload, this shouldn't be too complicated. Modify the `config.json` to fit your needs, such as Discord tokens, IPs, ports etc. Remember that the `xmpp.address` at the top should be a public one people can access, such as a [Radmin](https://www.radmin-vpn.com/) IP.
 
-<img width="411" height="598" alt="image" src="https://github.com/user-attachments/assets/be95e983-f867-4ca7-b631-5456aa24601f" />
+<img width="411" height="598" alt="be95e983-f867-4ca7-b631-5456aa24601f" src="https://github.com/user-attachments/assets/e78aacab-75e3-4d7d-980a-1b079b7d1994" />
 
 The main thing we need to modify is the `Openfire` object at the botton.
 
 Keep `admin_username` as the same, and change the `admin_password` to be the one you used for `xmpp-admin` on Openfire. Now the `domain` should be the one setup with ZeroSSL, so mine would be `test.rhysbot.com` for example.
 
-<img width="284" height="112" alt="image" src="https://github.com/user-attachments/assets/f2172d73-1fc7-4273-89da-d2b83a8cd7f9" />
+<img width="284" height="112" alt="f2172d73-1fc7-4273-89da-d2b83a8cd7f9" src="https://github.com/user-attachments/assets/e2847e9e-b601-4cac-a1f1-f327e73f04cb" />
 
 Run `install.bat` to download all the packages, and then run `run.bat` and if everything's worked correctly TCP should work. TCP services aren't limited to S1-S3, they also work up until S10 from my own testing (and maybe beyond).
 
@@ -186,13 +186,9 @@ Run `install.bat` to download all the packages, and then run `run.bat` and if ev
 
 You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just change `Domain` and `ServerAddr` to be your domain.
 
-<img width="238" height="112" alt="image" src="https://github.com/user-attachments/assets/426faa02-9288-4bce-8a55-cb249dac0dc1" />
+<img width="238" height="112" alt="426faa02-9288-4bce-8a55-cb249dac0dc1" src="https://github.com/user-attachments/assets/ab96cdba-6550-4361-b664-a601c0e15cf1" />
 
 ---
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
-
-
-
-
