@@ -1,5 +1,10 @@
+# Season 1 (v1.7.2) - Screenshot Taken 18/7/25
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/a3d82b42-d9cf-405d-88e3-62a4435e7c8a" />
+
 # Season 2 (v1.11) - Screenshot Taken 31/7/25
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/76f03e26-cc65-48d2-ada0-23183fce34b0" />
+
+Thanks to ThatDefaultBTW for helping me test this out.
 
 # Read Before Starting
 
@@ -187,4 +192,5 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
