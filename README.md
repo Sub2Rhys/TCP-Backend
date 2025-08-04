@@ -62,8 +62,6 @@ Download and install [Openfire](https://www.igniterealtime.org/downloads/), v5.0
 **Follow along very carefully with this part, one wrong setup could result in TCP not working like intended.
 A lesson I learnt that going back to a previous step in the setup can reset values back to default.**
 
----
-
 Firstly, you need to put your domain in here and make sure the rest of the settings are like mine
 
 <img width="569" height="445" alt="76456ec5-5dbc-4bf9-9835-30acb73fa81a" src="https://github.com/user-attachments/assets/6acf5000-f2f1-4062-8661-20a12380a52d" />
@@ -190,5 +188,6 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
 
