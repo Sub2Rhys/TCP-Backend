@@ -1,3 +1,6 @@
+# Season 2 (v1.11) - Screenshot Taken 31/7/25
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/76f03e26-cc65-48d2-ada0-23183fce34b0" />
+
 # Read Before Starting
 
 ### This guide isn't perfect, it was done through a lot of testing and experimenting and definitely isn't the most efficient way to do this. Right now it's catered to this specific backend, but with some modifications it'll work with others.
@@ -13,9 +16,6 @@ Thanks to the people behind [LawinServerV2](https://github.com/Lawin0129/LawinSe
 Also thanks to the people who told me about this and helped me to get this working fully (as well as Claude and ChatGPT).
 
 If you'd like to make a pull request to help make the backend better, you're more than welcome to (the code is overall just messy and certain endpoints are missing/incomplete or just badly coded).
-
-## Season 2 (v1.11) - Screenshot Taken 31/7/25
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/76f03e26-cc65-48d2-ada0-23183fce34b0" />
 
 ## Requirements
 - [Openfire](https://www.igniterealtime.org/downloads/#openfire) (This does most of the heavy lifting when it comes to XMPP/TCP)
@@ -187,3 +187,4 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
