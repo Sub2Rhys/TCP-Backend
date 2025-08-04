@@ -14,6 +14,9 @@ Also thanks to the people who told me about this and helped me to get this worki
 
 If you'd like to make a pull request to help make the backend better, you're more than welcome to (the code is overall just messy and certain endpoints are missing/incomplete or just badly coded).
 
+## Season 2 (v1.11) - Screenshot Taken 31/7/25
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/76f03e26-cc65-48d2-ada0-23183fce34b0" />
+
 ## Requirements
 - [Openfire](https://www.igniterealtime.org/downloads/#openfire) (This does most of the heavy lifting when it comes to XMPP/TCP)
 - [Knowledge on port forwarding](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide) (So users can access Openfire)
