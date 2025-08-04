@@ -166,7 +166,7 @@ The user MUST be called `xmpp-admin` with admin permissions, the password can be
 <img width="372" height="309" alt="d9a0b49a-48da-407a-ad48-1efe40ef995b" src="https://github.com/user-attachments/assets/bf5c3c7a-2054-4b06-bbcd-f1c1a617392e" />
 
 # Configuring The Backend
-My best advice is to restart Openfire after you've configured everything to ensure everythings working and updated (you can search for Openfire in task manager and close it)
+My best advice is to restart Openfire after you've configured everything to ensure everythings working and updated (search for Openfire in task manager and close it).
 
 Assuming you're someone who's used LawinV2 or Reload, this shouldn't be too complicated. Modify the `config.json` to fit your needs, such as Discord tokens, IPs, ports etc. Remember that the `xmpp.address` at the top should be a public one people can access, such as a [Radmin](https://www.radmin-vpn.com/) IP.
 
@@ -190,4 +190,5 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
