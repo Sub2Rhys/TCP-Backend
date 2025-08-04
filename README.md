@@ -10,8 +10,6 @@
 
 ### This guide isn't perfect, it was done through a lot of testing and experimenting and definitely isn't the most efficient way to do this. Right now it's catered to this specific backend, but with some modifications it'll work with others.
 
-#### This isn't as simple as the regular XMPP.
-
 The purpose for this backend was purely for testing XMPP/TCP connections on older builds, this backend is NOT optimised or 1:1 to the real Fortnite servers, so it probably has a few bugs.
 
 This backend was made for [FMP Reborn](https://discord.gg/run22HRWn9), an OG Fortnite hosting server, but was released publicly to show how XMPP/TCP works on older builds. With this release, I hope to see this utilised by other projects so playing S1-S3 builds can feel more authentic to the original experience.
@@ -192,3 +190,4 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
