@@ -1,8 +1,8 @@
 # Season 1 (v1.7.2) - Screenshot Taken 18/7/25
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/a3d82b42-d9cf-405d-88e3-62a4435e7c8a" />
+<img width="2560" height="1440" alt="474220997-a3d82b42-d9cf-405d-88e3-62a4435e7c8a" src="https://github.com/user-attachments/assets/fceed0ed-7d5d-47af-8423-6d5e7e8fd905" />
 
 # Season 2 (v1.11) - Screenshot Taken 31/7/25
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/76f03e26-cc65-48d2-ada0-23183fce34b0" />
+<img width="2560" height="1440" alt="474220359-76f03e26-cc65-48d2-ada0-23183fce34b0" src="https://github.com/user-attachments/assets/7b00b777-a5aa-4393-a66f-6d1f1526677b" />
 
 ### Thanks to ThatDefaultBTW for helping me test this out.
 
@@ -41,7 +41,7 @@ This part is simple, just login to [Cloudflare](https://dash.cloudflare.com/) an
 
 After verifying your domain, go to the DNS tab and copy what I've done in the image below, replace the IP with your public IP or an IP that is publicly accessible. If you don't know your IP then you can google it.
 
-<img width="1262" height="421" alt="image" src="https://github.com/user-attachments/assets/28b32fe0-52a1-49d8-98f6-e3dc5d3c11b4" />
+<img width="1262" height="421" alt="28b32fe0-52a1-49d8-98f6-e3dc5d3c11b4" src="https://github.com/user-attachments/assets/16ce7970-2342-4f98-be29-63f9ef2f797c" />
 
 For TCP to work correctly, you need to open some ports.
 
@@ -54,7 +54,7 @@ This part might be a bit confusing, but look for your Java directory and go to `
 
 Open `java.security` with notepad with administrator and search for `tls.disabledAlgorithms` (use CTRL+F to search), you will end up coming across this line and make sure you remove `TLSv1` and `TLSv1.1` from it. Make sure you edit the actual line and not the example note above it.
 
-<img width="658" height="107" alt="image" src="https://github.com/user-attachments/assets/999ab534-1a65-4445-b069-73623d27c97f" />
+<img width="658" height="107" alt="999ab534-1a65-4445-b069-73623d27c97f" src="https://github.com/user-attachments/assets/0bbe88cd-8f6a-41cf-88d0-fccb1764a692" />
 
 Once done, save and close this file and that's the Java part out of the way.
 
@@ -68,25 +68,25 @@ A lesson I learnt that going back to a previous step in the setup can reset valu
 
 Firstly, you need to put your domain in here and make sure the rest of the settings are like mine
 
-<img width="569" height="445" alt="image" src="https://github.com/user-attachments/assets/76456ec5-5dbc-4bf9-9835-30acb73fa81a" />
+<img width="569" height="445" alt="76456ec5-5dbc-4bf9-9835-30acb73fa81a" src="https://github.com/user-attachments/assets/6acf5000-f2f1-4062-8661-20a12380a52d" />
 
 ---
 
 Set to an embedded database.
 
-<img width="396" height="229" alt="image" src="https://github.com/user-attachments/assets/d706ecaf-3ca6-4b60-b5bc-8d5c68160b51" />
+<img width="396" height="229" alt="d706ecaf-3ca6-4b60-b5bc-8d5c68160b51" src="https://github.com/user-attachments/assets/ddfb6c83-eef7-4af8-a1f7-dc27d0a5ce8a" />
 
 ---
 
 Leave as default.
 
-<img width="337" height="252" alt="image" src="https://github.com/user-attachments/assets/b1b960b1-812a-4e2a-843f-76589ec3b1ab" />
+<img width="337" height="252" alt="b1b960b1-812a-4e2a-843f-76589ec3b1ab" src="https://github.com/user-attachments/assets/153cff96-f0fa-419b-82a5-ad269a54da89" />
 
 ---
 
 For this, I've just used the password `1234`.
 
-<img width="475" height="244" alt="image" src="https://github.com/user-attachments/assets/953fa8bc-f1db-4f9d-82c9-5933806f593d" />
+<img width="475" height="244" alt="953fa8bc-f1db-4f9d-82c9-5933806f593d" src="https://github.com/user-attachments/assets/335c14e9-c163-4f99-9922-8f815c14cd26" />
 
 ---
 
@@ -95,17 +95,17 @@ This should be the setup done, now we can move onto configuring some settings.
 ## Configuring Openfire
 Go to `Server > Server Manager > System Properties` and change the `adminConsole.access.allow-wildcards-in-excludes` property to true. This will allow the Rest API to work correctly.
 
-<img width="822" height="656" alt="image" src="https://github.com/user-attachments/assets/d3004e99-493a-4a9c-a52c-943b86db73f5" />
+<img width="822" height="656" alt="d3004e99-493a-4a9c-a52c-943b86db73f5" src="https://github.com/user-attachments/assets/8b910a56-3f42-487b-b122-c2ebcec34a36" />
 
 ---
 
 Go to `Server > Server Settings > Client Connections` and click `Advanced configuration...`
 
-<img width="256" height="199" alt="image" src="https://github.com/user-attachments/assets/0d57007b-e974-46cf-a437-54beda0d08da" />
+<img width="256" height="199" alt="0d57007b-e974-46cf-a437-54beda0d08da" src="https://github.com/user-attachments/assets/ff36d9ce-a83d-4deb-a104-cb539c3a88ba" />
 
 Make sure these boxes are ticked then save.
 
-<img width="225" height="309" alt="image" src="https://github.com/user-attachments/assets/c7bb445e-7845-4a3f-aad4-3afde9db9d4f" />
+<img width="225" height="309" alt="c7bb445e-7845-4a3f-aad4-3afde9db9d4f" src="https://github.com/user-attachments/assets/40ee7d40-28d7-407e-b72d-8baee9ee55dc" />
 
 ---
 
@@ -192,6 +192,7 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
 
 
