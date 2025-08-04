@@ -1,19 +1,186 @@
 # Read Before Starting
 
+### This guide isn't perfect, it was done through a lot of testing and experimenting and definitely isn't the most efficient way to do this. Right now it's catered to this specific backend, but with some modifications it'll work with others.
+
+#### This isn't as simple as the regular XMPP.
+
+The purpose for this backend was purely for testing XMPP/TCP connections on older builds, this backend is NOT optimised or 1:1 to the real Fortnite servers, so it probably has a few bugs.
+
 This backend was made for [FMP Reborn](https://discord.gg/run22HRWn9), an OG Fortnite hosting server, but was released publicly to show how XMPP/TCP works on older builds. With this release, I hope to see this utilised by other projects so playing S1-S3 builds can feel more authentic to the original experience.
 
-Thanks to the people behind [LawinServerV2](https://github.com/Lawin0129/LawinServerV2) and [Reload](https://github.com/Project-Reload/Reload-Backend) for their work in allowing old Fortnite to still be accessible via the frontend, this backend is inspired by them and uses small parts of their code to make this backend function to the extent it does.
+Thanks to the people behind [LawinServerV2](https://github.com/Lawin0129/LawinServerV2) and [Reload](https://github.com/Project-Reload/Reload-Backend) for their work in allowing old Fortnite to still be accessible, this backend is inspired by them and uses small parts of their code to make this backend function to the extent it does.
 
 Also thanks to the people who told me about this and helped me to get this working fully (as well as Claude and ChatGPT).
 
-If you'd like to make a pull request to help make the backend better, you're more than welcome to (the code is overall just messy and things like auth and certain endpoints are missing/incomplete).
+If you'd like to make a pull request to help make the backend better, you're more than welcome to (the code is overall just messy and certain endpoints are missing/incomplete or just badly coded).
+
+## Requirements
+- [Openfire](https://www.igniterealtime.org/downloads/#openfire) (This does most of the heavy lifting when it comes to XMPP/TCP)
+- [Knowledge on port forwarding](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide) (So users can access Openfire)
+- [Java that supports TLS 1](https://adoptium.net/en-GB/temurin/releases) (I use Java 17)
+- [Domain](https://www.123-reg.co.uk/) (I use 123-Reg for mine, but there's other options out there)
+- [SSL certificates](https://zerossl.com/) (Must be trusted by Fortnite for it to work, use ZeroSSL)
+
+## SSL Certificates
+You will need your own domain for this, I won't be covering how to get one in this guide but it's easy to find one and often you can get them for insanely cheap. I got mine from [123-Reg](https://www.123-reg.co.uk/) and recommend it if you're cheap like me.
+
+After obtaining a domain, go to [ZeroSSL](https://zerossl.com/) and request a certificate for a subdomain. Follow the steps to verify you own the domain and then you will be granted the certificates. You'll end up with three files called `ca_bundle.crt`, `certificate.crt` and `private.key`. You'll need these for later when we setup Openfire.
+
+To avoid confusion, I will be using `test.rhysbot.com` throughout this guide, so every time you see my domain, just replace it with yours (e.g. `xmpp.example.com`).
+
+## Cloudflare
+This part is simple, just login to [Cloudflare](https://dash.cloudflare.com/) and register your domain.
+
+After verifying your domain, go to the DNS tab and copy what I've done in the image below, replace the IP with your public IP or an IP that is publicly accessible. If you don't know your IP then you can google it.
+
+<img width="1262" height="421" alt="image" src="https://github.com/user-attachments/assets/28b32fe0-52a1-49d8-98f6-e3dc5d3c11b4" />
+
+For TCP to work correctly, you need to open some ports.
+
+- Openfire needs - 5222, 9090, 9091.
+
+Chances are I may have missed a port, if I have then let me know.
+
+## Modifying Java
+This part might be a bit confusing, but look for your Java directory and go to `conf > security` and find the `java.security` file. The directory will vary depending on your version of Java, for example mine was at `C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\conf\security`.
+
+Open `java.security` with notepad with administrator and search for `tls.disabledAlgorithms` (use CTRL+F to search), you will end up coming across this line and make sure you remove `TLSv1` and `TLSv1.1` from it. Make sure you edit the actual line and not the example note above it.
+
+<img width="658" height="107" alt="image" src="https://github.com/user-attachments/assets/999ab534-1a65-4445-b069-73623d27c97f" />
+
+Once done, save and close this file and that's the Java part out of the way.
+
+## Setting Up Openfire
+Download and install [Openfire](https://www.igniterealtime.org/downloads/), v5.0.1 is the latest at the time of writing this.
+
+**Follow along very carefully with this part, one wrong setup could result in TCP not working like intended.
+A lesson I learnt that going back to a previous step in the setup can reset values back to default.**
 
 ---
 
-## Requirements
-- [Openfire](https://www.igniterealtime.org/downloads/#openfire) (This does most of the heavy lifting when it comes to XMPP)
-- [Knowledge on port forwarding](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide) or [Radmin](https://www.radmin-vpn.com/) (Radmin is easier)
-- [A Java that suppors TLS 1](https://adoptium.net/en-GB/temurin/releases) (I use Java 17)
-- [A domain](https://www.123-reg.co.uk/) (I use 123 Reg for my domain, there's plenty of options to suit different price ranges)
-- [SSL certificates](https://zerossl.com/) (You get a 90 day certificate for free)
-- [Cloudflare](https://dash.cloudflare.com/) (This is just to redirect the domain back to your servers)
+Firstly, you need to put your domain in here and make sure the rest of the settings are like mine
+
+<img width="569" height="445" alt="image" src="https://github.com/user-attachments/assets/76456ec5-5dbc-4bf9-9835-30acb73fa81a" />
+
+---
+
+Set to an embedded database.
+
+<img width="396" height="229" alt="image" src="https://github.com/user-attachments/assets/d706ecaf-3ca6-4b60-b5bc-8d5c68160b51" />
+
+---
+
+Leave as default.
+
+<img width="337" height="252" alt="image" src="https://github.com/user-attachments/assets/b1b960b1-812a-4e2a-843f-76589ec3b1ab" />
+
+---
+
+For this, I've just used the password `1234`.
+
+<img width="475" height="244" alt="image" src="https://github.com/user-attachments/assets/953fa8bc-f1db-4f9d-82c9-5933806f593d" />
+
+---
+
+This should be the setup done, now we can move onto configuring some settings.
+
+## Configuring Openfire
+Go to `Server > Server Manager > System Properties` and change the `adminConsole.access.allow-wildcards-in-excludes` property to true. This will allow the Rest API to work correctly.
+
+<img width="822" height="656" alt="image" src="https://github.com/user-attachments/assets/d3004e99-493a-4a9c-a52c-943b86db73f5" />
+
+---
+
+Go to `Server > Server Settings > Client Connections` and click `Advanced configuration...`
+
+<img width="256" height="199" alt="image" src="https://github.com/user-attachments/assets/0d57007b-e974-46cf-a437-54beda0d08da" />
+
+Make sure these boxes are ticked then save.
+
+<img width="225" height="309" alt="image" src="https://github.com/user-attachments/assets/c7bb445e-7845-4a3f-aad4-3afde9db9d4f" />
+
+---
+
+Go to `Plugins > Available Plugins` and install `REST API`
+
+<img width="301" height="57" alt="image" src="https://github.com/user-attachments/assets/8b5153de-5b8e-48f3-9cab-6d57bf934901" />
+
+Go back `Server > Server Settings` and you should see a `Rest API` button on the left.
+
+<img width="147" height="39" alt="image" src="https://github.com/user-attachments/assets/62dca7f0-f584-4fc8-b72a-db0eab42d966" />
+
+Click this and copy my settings exactly.
+
+<img width="760" height="576" alt="image" src="https://github.com/user-attachments/assets/d2ca2cb1-dae8-4537-945a-bd256615d9fa" />
+
+---
+
+If done correctly, the Rest API should be ready to work with the backend.
+
+## Configuring Openfire SSL/TLS Certificates
+Pay close attention to the order I put these in, I had issues myself with this for ages all because I had the files in the wrong order.
+
+Go to `Server > TLS Certificates` and click `Manage Store Contents` (the top one).
+
+<img width="424" height="479" alt="image" src="https://github.com/user-attachments/assets/a364c94a-9c70-42d3-8e95-2a876f9d04a1" />
+
+By default, a self-signed certificate has been generated. Delete this.
+
+<img width="1559" height="389" alt="image" src="https://github.com/user-attachments/assets/617d838a-80f4-46a0-9be3-4b485390567c" />
+
+Now click this link here.
+
+<img width="103" height="38" alt="image" src="https://github.com/user-attachments/assets/6d35ea0f-c183-4ada-8cd2-5a9df9f794a5" />
+
+Paste the contents of the files you got from ZeroSSL earlier. It's painfully important it's in the right order, I don't want you to encounter the same issues I did.
+
+In the second box `ca_bundle.crt` content must be ABOVE the `certificate.crt` content while both being in the same box
+
+<img width="814" height="795" alt="image" src="https://github.com/user-attachments/assets/5d949774-e463-4f1a-80ba-fd321640612c" />
+
+<img width="813" height="796" alt="image" src="https://github.com/user-attachments/assets/13651c02-f902-443b-9122-e251534d28ee" />
+
+This should be your certificates all set up now.
+
+## Openfire User Presence
+To allow users to share their presence (status) with eachother, you must go to `Users/Groups > Groups` and create a new group called `users`.
+
+<img width="578" height="416" alt="image" src="https://github.com/user-attachments/assets/58d12259-ec29-4046-bfe2-e9b875543c0a" />
+
+Once created, edit the group and copy what I've done.
+
+<img width="440" height="445" alt="image" src="https://github.com/user-attachments/assets/a2d9b5bc-b2b6-4763-8e1f-3677b0cc3986" />
+
+---
+
+For things like live friend requests and gifts, it requires a specific user to be created on Openfire.
+
+The user MUST be called `xmpp-admin` with admin permissions, the password can be anything but **remember it for later**.
+
+<img width="372" height="309" alt="image" src="https://github.com/user-attachments/assets/d9a0b49a-48da-407a-ad48-1efe40ef995b" />
+
+# Configuring The Backend
+My best advice is to restart Openfire after you've configured everything to ensure everythings working and updated (you can search for Openfire in task manager and close it)
+
+Assuming you're someone who's used LawinV2 or Reload, this shouldn't be too complicated. Modify the `config.json` to fit your needs, such as Discord tokens, IPs, ports etc. Remember that the `xmpp.address` at the top should be a public one people can access, such as a [Radmin](https://www.radmin-vpn.com/) IP.
+
+<img width="411" height="598" alt="image" src="https://github.com/user-attachments/assets/be95e983-f867-4ca7-b631-5456aa24601f" />
+
+The main thing we need to modify is the `Openfire` object at the botton.
+
+Keep `admin_username` as the same, and change the `admin_password` to be the one you used for `xmpp-admin` on Openfire. Now the `domain` should be the one setup with ZeroSSL, so mine would be `test.rhysbot.com` for example.
+
+<img width="284" height="112" alt="image" src="https://github.com/user-attachments/assets/f2172d73-1fc7-4273-89da-d2b83a8cd7f9" />
+
+Run `install.bat` to download all the packages, and then run `run.bat` and if everything's worked correctly TCP should work. TCP services aren't limited to S1-S3, they also work up until S10 from my own testing (and maybe beyond).
+
+---
+
+You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just change `Domain` and `ServerAddr` to be your domain.
+
+<img width="238" height="112" alt="image" src="https://github.com/user-attachments/assets/426faa02-9288-4bce-8a55-cb249dac0dc1" />
+
+---
+
+## Still not working?
+Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
