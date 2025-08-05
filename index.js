@@ -40,5 +40,5 @@ endpoints.forEach(async name => {
 
 const port = config.port || 8080;
 app.listen(port, () => {
-    console.log(`XMPP listening on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 });
