@@ -1,4 +1,8 @@
 {
+  "module": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
   "dependencies": {
     "@xmpp/client": "^0.13.6",
     "axios": "^1.10.0",
