@@ -97,7 +97,6 @@ app.get('/services', (req, res) => {
             timestamp: new Date().toISOString()
         });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ error: 'Failed to read configuration', services: [] });
     }
 });
