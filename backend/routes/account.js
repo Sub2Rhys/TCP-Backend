@@ -65,8 +65,8 @@ app.post('/account/api/oauth/token', async (req, res) => {
 
             try {
                 if (!user.displayName.toLowerCase().includes("host-")) {
-                    await modifyUser(user.userId, { password: accessToken.token });
-                    await addUserToGroup(user.userId, 'users');
+                    modifyUser(user.userId, { password: accessToken.token });
+                    addUserToGroup(user.userId, 'users');
                 }
             } catch (error) {
                 console.warn(error.message);

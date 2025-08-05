@@ -7,6 +7,11 @@ const RESPONSES = {
         title: 'Access Denied',
         description: 'You must be an administrator to use this command.'
     },
+    ACCESS_DENIED_HOSTER: {
+        color: 'Red',
+        title: 'Access Denied',
+        description: 'You must be a hoster to use this command.'
+    },
     USER_NOT_FOUND: (username) => ({
         color: 'Yellow',
         title: 'User Not Found',
@@ -82,6 +87,14 @@ async function requireAdmin(interaction) {
     return true;
 }
 
+async function requireHoster(interaction) {
+    if (!isAdmin(interaction.user.id)) {
+        await createResponse(interaction, RESPONSES.ACCESS_DENIED_HOSTER);
+        return false;
+    }
+    return true;
+}
+
 async function validateUser(interaction, username, ephemeral = false) {
     const user = await findUserByUsername(username);
     if (!user) {
@@ -137,6 +150,7 @@ module.exports = {
     findUserById,
     createResponse,
     requireAdmin,
+    requireHoster,
     validateUser,
     validateAccount,
     extractOptions

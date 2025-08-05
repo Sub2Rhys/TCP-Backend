@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { Matchmaking, Servers } = require('../../models/mongoose');
-const { requireAdmin, createResponse, extractOptions, isAdmin, isHoster, RESPONSES } = require('../utils/helper');
+const { requireAdmin, requireHoster, createResponse, extractOptions, RESPONSES } = require('../utils/helper');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -88,9 +88,9 @@ module.exports = {
         ]);
         let { key, address, port } = options;
 
-        if (!(await requireAdmin(interaction))) return;
-
         if (subcommand === 'create') {
+            if (!(await requireAdmin(interaction))) return;
+
             if (key.toLowerCase() == 'clear') {
                 return createResponse(interaction, RESPONSES.ERROR(`The key \`${key}\` cannot be created.`));
             }
@@ -119,6 +119,8 @@ module.exports = {
         }
 
         if (subcommand === 'delete') {
+            if (!(await requireAdmin(interaction))) return;
+
             const existingKey = await Matchmaking.findOne({ key });
             if (!existingKey) {
                 return createResponse(interaction, RESPONSES.ERROR('No matchmaking key found with that value.'));
@@ -153,9 +155,7 @@ module.exports = {
         }
 
         if (subcommand === 'host') {
-            if (!isAdmin(interaction.user.id) && !isHoster(interaction)) {
-                return createResponse(interaction, RESPONSES.ERROR('You must be an administrator and/or hoster to use this command.'));
-            }
+            if (!(await requireHoster(interaction))) return;
 
             let userServers = await Servers.findOne({ userId: interaction.user.id });
 
