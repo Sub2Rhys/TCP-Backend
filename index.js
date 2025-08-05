@@ -19,6 +19,10 @@ try {
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/dashboard/views');
+app.set('trust proxy', true);
+
 app.use(bodyParser.json({ limit: '50mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 app.use(bodyParser.text({ limit: '50mb' }));
@@ -34,8 +38,7 @@ global.requireAuth = requireAuth;
 const { getVersion } = require('./middleware/version');
 app.use(getVersion);
 
-app.set('trust proxy', true);
-
+app.use('/', require('./dashboard/index'));
 require('./backend/xmpp/xmpp');
 require('./backend/xmpp/matchmaker');
 require('./bot/index');

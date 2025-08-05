@@ -26,6 +26,5 @@
         "admin_username": "xmpp-admin",
         "admin_password": null,
         "domain": null
-    },
-    "github_secret": null
+    }
 }

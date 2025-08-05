@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Status</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Poppins, sans-serif;
+            background: rgb(239, 240, 245);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+            width: 50%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .card,
+        .overall-status {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .overall-status {
+            margin: 0 20px;
+            cursor: default;
+        }
+
+        .status-indicator,
+        .overall-indicator {
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            margin-left: 8px;
+        }
+
+        .overall-indicator {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+
+        .status-online {
+            background-color: #22c55e;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+
+        .status-offline {
+            background-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .status-checking {
+            background-color: #f59e0b;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+
+        .status-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .status-online-text {
+            color: #22c55e;
+        }
+
+        .status-offline-text {
+            color: #ef4444;
+        }
+
+        .status-checking-text {
+            color: #f59e0b;
+        }
+
+        .service-details {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        .detail-label {
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .last-updated {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Services</h1>
+        <div class="grid-container" id="services-grid"></div>
+        <div class="overall-status">
+            <h3>
+                <span class="overall-indicator status-checking" id="overall-indicator"></span>
+                <span id="overall-status">Status: Loading</span>
+            </h3>
+            <div class="last-updated">Last updated: <span id="last-updated">-</span></div>
+        </div>
+    </div>
+
+    <script>
+        let services = {};
+
+        function createServiceCard(service) {
+            return `
+                <div class="card">
+                    <div style="font-weight: 600; font-size: 1rem;">${service.name}<span class="status-indicator status-checking" id="${service.id}-indicator"></span></div>
+                    <div class="status-text status-checking-text" id="${service.id}-status">Checking...</div>
+                    <div class="service-details">
+                        <div class="detail-row"><span class="detail-label">Port:</span><span class="detail-value">${service.port}</span></div>
+                        <div class="detail-row"><span class="detail-label">Type:</span><span class="detail-value">${service.type.toUpperCase()}</span></div>
+                        <div class="detail-row"><span class="detail-label">Response:</span><span class="detail-value" id="${service.id}-response">-</span></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateServiceStatus(serviceId, status) {
+            const indicator = document.getElementById(`${serviceId}-indicator`);
+            const statusText = document.getElementById(`${serviceId}-status`);
+            const responseTime = document.getElementById(`${serviceId}-response`);
+
+            if (!indicator) return;
+
+            const isOnline = status.online;
+            const statusClass = isOnline ? 'online' : 'offline';
+
+            indicator.className = `status-indicator status-${statusClass}`;
+            statusText.className = `status-text status-${statusClass}-text`;
+            statusText.textContent = isOnline ? 'Online' : 'Offline';
+            responseTime.textContent = isOnline ? `${status.responseTime}ms` : 'N/A';
+        }
+
+        function updateOverallStatus() {
+            const onlineCount = Object.values(services).filter(s => s.online).length;
+            const totalCount = Object.keys(services).length;
+            const indicator = document.getElementById('overall-indicator');
+            const statusText = document.getElementById('overall-status');
+
+            if (totalCount === 0) return;
+
+            const allOnline = onlineCount === totalCount;
+            const someOnline = onlineCount > 0;
+
+            if (allOnline) {
+                indicator.className = 'overall-indicator status-online';
+                statusText.textContent = 'All Systems Operational';
+            } else if (someOnline) {
+                indicator.className = 'overall-indicator status-checking';
+                statusText.textContent = `${onlineCount}/${totalCount} Services Online`;
+            } else {
+                indicator.className = 'overall-indicator status-offline';
+                statusText.textContent = 'System Outage';
+            }
+        }
+
+        async function checkServiceStatus(serviceId) {
+            try {
+                const response = await fetch(`/services/${serviceId}/status`);
+                const status = await response.json();
+                services[serviceId] = status;
+                updateServiceStatus(serviceId, status);
+                updateOverallStatus();
+            } catch (error) {
+                console.error(`Failed to check ${serviceId}:`, error);
+                services[serviceId] = {
+                    online: false,
+                    responseTime: 0
+                };
+                updateServiceStatus(serviceId, services[serviceId]);
+                updateOverallStatus();
+            }
+        }
+
+        async function loadServices() {
+            try {
+                const response = await fetch('/services');
+                const data = await response.json();
+
+                if (data.success && data.services) {
+                    const grid = document.getElementById('services-grid');
+                    grid.innerHTML = data.services.map(createServiceCard).join('');
+
+                    data.services.forEach(service => {
+                        checkServiceStatus(service.id);
+                    });
+
+                    document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+                }
+            } catch (error) {
+                console.error('Failed to load services:', error);
+                document.getElementById('overall-status').textContent = 'Failed to load services';
+            }
+        }
+
+        loadServices();
+        setInterval(() => {
+            Object.keys(services).forEach(checkServiceStatus);
+            document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+        }, 5000);
+
+        setInterval(loadServices, 30000);
+    </script>
+</body>
+</html>
