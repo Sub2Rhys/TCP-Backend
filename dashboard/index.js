@@ -87,7 +87,7 @@ app.get('/services', (req, res) => {
         const services = [
             { id: 'backend', name: 'Backend', port: config.port || 8080, type: 'http', enabled: true },
             { id: 'matchmaking', name: 'Matchmaking', port: config.backend?.xmpp?.port || 80, type: 'http', enabled: !!config.backend?.xmpp?.port },
-            { id: 'openfire', name: 'Openfire', port: config.openfire?.port || 9090, type: 'http', enabled: !!config.openfire },
+            { id: 'openfire', name: 'Openfire', port: config.openfire?.port || 9091, type: 'http', enabled: !!config.openfire },
             { id: 'database', name: 'Database', port: 27017, type: 'tcp', enabled: !!config.database_url, url: config.database_url }
         ];
        
@@ -110,7 +110,7 @@ app.get('/services/:serviceId/status', async (req, res) => {
         const serviceMap = {
             backend: { port: config.port || 8080, type: 'http' },
             matchmaking: { port: config.backend?.xmpp?.port || 80, type: 'http' },
-            openfire: { port: config.openfire?.port || 9090, type: 'http' },
+            openfire: { port: config.openfire?.port || 9091, type: 'http' },
             database: { port: 27017, type: 'tcp', url: config.database_url }
         };
        
