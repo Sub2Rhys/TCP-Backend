@@ -23,6 +23,7 @@
         "debug": false
     },
     "openfire": {
+        "port": 9090,
         "admin_username": "xmpp-admin",
         "admin_password": null,
         "domain": null
