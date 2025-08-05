@@ -27,6 +27,7 @@ async function getUsers() {
 async function deleteUser(username) {
     try {
         await api.delete(`/users/${encodeURIComponent(username)}`);
+        return;
     } catch (err) {
         console.error(`Failed to delete user ${username}: ${err.response?.statusText || err.message}`);
     }
@@ -45,6 +46,8 @@ async function createUser({ username, name = '', email = '', password, propertie
             email,
             properties
         });
+
+        return;
     } catch {}
 }
 
@@ -67,6 +70,8 @@ async function modifyUser(target, { username, name, email, password, properties 
         if (Object.keys(payload).length === 0) return;
 
         await api.put(`/users/${encodeURIComponent(target)}`, payload);
+
+        return;
     } catch (err) {
         console.error(`Failed to modify user ${target}: ${err.response?.statusText || err.message}`);
     }
@@ -75,6 +80,7 @@ async function modifyUser(target, { username, name, email, password, properties 
 async function addUserToGroup(username, groupName) {
     try {
         await api.post(`/users/${encodeURIComponent(username)}/groups/${encodeURIComponent(groupName)}`);
+        return;
     } catch (err) {
         console.error(`Failed to add user '${username}' to group '${groupName}': ${err.response?.statusText || err.message}`);
     }
@@ -83,6 +89,7 @@ async function addUserToGroup(username, groupName) {
 async function removeUserFromGroup(username, groupName) {
     try {
         await api.delete(`/users/${encodeURIComponent(username)}/groups/${encodeURIComponent(groupName)}`);
+        return;
     } catch (err) {
         console.error(`Failed to remove user '${username}' from group '${groupName}': ${err.response?.statusText || err.message}`);
     }
@@ -91,6 +98,7 @@ async function removeUserFromGroup(username, groupName) {
 async function createChatRoom(payload) {
     try {
         await api.post(`/chatrooms?servicename=muc`, payload);
+        return;
     } catch {}
 }
 
