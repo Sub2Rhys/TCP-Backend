@@ -200,7 +200,9 @@ The user MUST be called `xmpp-admin` with admin permissions, the password can be
 ## Configuring The Backend
 My best advice is to restart Openfire after you've configured everything to ensure everythings working and updated (search for Openfire in task manager and close it).
 
-Assuming you're someone who's used LawinV2 or Reload, this shouldn't be too complicated. Modify the `config.json` to fit your needs, such as Discord tokens, IPs, ports etc. Remember that the `xmpp.address` at the top should be a public one people can access, such as a [Radmin](https://www.radmin-vpn.com/) IP.
+Run `install.bat` to download all the packages, and then run `run.bat`. Running `run.bat` once will generate the `config.json` file, after this make sure you modify `config.json` and not `config_template.json`.
+
+Modify the `config.json` to fit your needs. Remember that the `xmpp.address` at the top should be a public one people can access, such as a [Radmin](https://www.radmin-vpn.com/) IP.
 
 <img width="411" height="598" alt="be95e983-f867-4ca7-b631-5456aa24601f" src="https://github.com/user-attachments/assets/e78aacab-75e3-4d7d-980a-1b079b7d1994" />
 
@@ -210,7 +212,7 @@ Keep `admin_username` as the same, and change the `admin_password` to be the one
 
 <img width="284" height="112" alt="f2172d73-1fc7-4273-89da-d2b83a8cd7f9" src="https://github.com/user-attachments/assets/e2847e9e-b601-4cac-a1f1-f327e73f04cb" />
 
-Run `install.bat` to download all the packages, and then run `run.bat` and if everything's worked correctly TCP should work. TCP services aren't limited to S1-S3, they also work up until S10 from my own testing (and maybe beyond).
+Now run `run.bat` again and if everything's worked correctly, TCP should be working when you load the game. TCP services aren't limited to S1-S3, they also work up until S10 from my own testing (and maybe beyond).
 
 ---
 
