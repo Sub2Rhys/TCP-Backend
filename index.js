@@ -39,7 +39,6 @@ app.set('trust proxy', true);
 require('./backend/xmpp/xmpp');
 require('./backend/xmpp/matchmaker');
 require('./bot/index');
-require('./webhook');
 
 const endpoints = fs.readdirSync('./backend/routes');
 endpoints.forEach(async name => {
