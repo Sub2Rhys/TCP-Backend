@@ -3,7 +3,19 @@ const bodyParser = require('body-parser');
 const fs = require('node:fs');
 const path = require('path');
 
-const config = require('./config.json');
+const configPath = './config.json';
+const configTemplate = './config_template.json';
+
+if (!fs.existsSync(configPath) && fs.existsSync(configTemplate)) {
+    fs.copyFileSync(configTemplate, configPath);
+}
+
+let config = {};
+try {
+    if (fs.existsSync(configPath)) {
+        config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    }
+} catch {}
 
 const app = express();
 
@@ -27,6 +39,7 @@ app.set('trust proxy', true);
 require('./backend/xmpp/xmpp');
 require('./backend/xmpp/matchmaker');
 require('./bot/index');
+require('./webhook');
 
 const endpoints = fs.readdirSync('./backend/routes');
 endpoints.forEach(async name => {
