@@ -1,5 +1,3 @@
-### Thanks to ThatDefaultBTW for helping me test this out.
-
 # Read Before Starting
 
 ### This guide isn't perfect, it was done through a lot of testing and experimenting and definitely isn't the most efficient way to do this. Right now it's catered to this specific backend, but with some modifications it'll work with others.
@@ -53,6 +51,8 @@ If you'd like to make a pull request to help make the backend better, you're mor
 
 ## Season 2 (v1.11) - Screenshot Taken 31/7/25
 <img width="2560" height="1440" alt="474220359-76f03e26-cc65-48d2-ada0-23183fce34b0" src="https://github.com/user-attachments/assets/7b00b777-a5aa-4393-a66f-6d1f1526677b" />
+
+#### Thanks to ThatDefaultBTW for helping me test this out.
 
 # Requirements
 - [Openfire](https://www.igniterealtime.org/downloads/#openfire) (This does most of the heavy lifting when it comes to XMPP/TCP)
@@ -222,6 +222,7 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
 
 
