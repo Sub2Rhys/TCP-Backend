@@ -13,7 +13,7 @@ Also thanks to the people who told me about this and helped me to get this worki
 If you'd like to make a pull request to help make the backend better, you're more than welcome to (the code is overall just messy and certain endpoints are missing/incomplete or just badly coded).
 
 # Features
-#### Currently only made for chapter 1 versions.
+Currently only made for chapter 1 versions.
 
 ## XMPP/TCP
 - [x] Managing friends
@@ -222,6 +222,7 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
 
 
