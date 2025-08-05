@@ -123,7 +123,7 @@ For this, I've just used the password `1234`.
 This should be the setup done, now we can move onto configuring some settings.
 
 ## Configuring Openfire
-Go to `Server > Server Manager > System Properties` and change the `adminConsole.access.allow-wildcards-in-excludes` property to true. This will allow the Rest API to work correctly.
+Go to `Server > Server Manager > System Properties` and change the `adminConsole.access.allow-wildcards-in-excludes` property to `true`. This will allow the Rest API to work correctly.
 
 <img width="822" height="656" alt="d3004e99-493a-4a9c-a52c-943b86db73f5" src="https://github.com/user-attachments/assets/8b910a56-3f42-487b-b122-c2ebcec34a36" />
 
@@ -222,6 +222,7 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
 
 
