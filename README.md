@@ -220,8 +220,9 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ---
 
-## Still not working?
+# Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
+
 
 
 
