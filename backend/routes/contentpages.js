@@ -9,7 +9,7 @@ const { getUserIdByIP, getClientIP } = require('../functions/tokens');
 
 async function ipAuth(req, res, next) {
     const clientIP = getClientIP(req);
-    const maxRetries = 20;
+    const maxRetries = 50;
     const retryInterval = 1000;
     
     let retries = 0;
