@@ -48,7 +48,9 @@ async function createUser({ username, name = '', email = '', password, propertie
         });
 
         return;
-    } catch {}
+    } catch {
+        console.error(`Failed to create user ${username}: ${err.response?.statusText || err.message}`);
+    }
 }
 
 async function modifyUser(target, { username, name, email, password, properties }) {
@@ -99,7 +101,9 @@ async function createChatRoom(payload) {
     try {
         await api.post(`/chatrooms?servicename=muc`, payload);
         return;
-    } catch {}
+    } catch {
+        console.error(`Failed to create room: ${err.response?.statusText || err.message}`);
+    }
 }
 
 module.exports = {
