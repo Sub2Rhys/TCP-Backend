@@ -9,29 +9,14 @@ const { getUserIdByIP, getClientIP } = require('../functions/tokens');
 
 async function ipAuth(req, res, next) {
     const clientIP = getClientIP(req);
-    const maxRetries = 50;
-    const retryInterval = 1000;
+    const userId = getUserIdByIP(clientIP);
     
-    let retries = 0;
+    if (userId) {
+        req.userId = userId;
+        return next();
+    }
     
-    const checkAuth = () => {
-        const userId = getUserIdByIP(clientIP);
-        
-        if (userId) {
-            req.userId = userId;
-            return next();
-        }
-        
-        retries++;
-        if (retries >= maxRetries) {
-            req.userId = null;
-            return next();
-        }
-        
-        setTimeout(checkAuth, retryInterval);
-    };
-    
-    checkAuth();
+    res.status(404).end();
 }
 
 function createBaseResponse(newsMessages = [], messages = {}) {
