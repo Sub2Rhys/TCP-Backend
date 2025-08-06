@@ -230,15 +230,25 @@ If using something like Fiddler, make sure your settings are like this. Make sur
 
 <img width="710" height="381" alt="image" src="https://github.com/user-attachments/assets/df7a7c61-be66-4b28-836c-23f45bae1811" />
 
+For the script, you can use your domain instead of an IP address.
 
+```csharp
+import System;
+import System.Web;
+import System.Windows.Forms;
+import Fiddler;
 
-
-
-
-
-
-
-
-
-
-
+class Handlers
+{ 
+    static function OnBeforeRequest(oSession: Session) {
+        if (oSession.hostname.Contains(".ol.epicgames.com")) {
+            if (oSession.HTTPMethodIs("CONNECT"))
+            {
+                oSession["x-replywithtunnel"] = "FortniteTunnel";
+                return;
+            }
+            oSession.fullUrl = "http://45.92.216.22:8080" + oSession.PathAndQuery;
+        }
+    }
+}
+```
