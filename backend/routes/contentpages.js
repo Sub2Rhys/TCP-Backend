@@ -3,10 +3,14 @@ const app = express.Router();
 const { User, Servers } = require('../../models/mongoose');
 const { getUserIdByIP, getClientIP } = require('../functions/tokens');
 
+/*
+    this whole custom page system is kinda shit and just a weird gimmick tbh i might delete so contentpages doesn't take 20 years to load up.
+*/
+
 async function ipAuth(req, res, next) {
     const clientIP = getClientIP(req);
     const maxRetries = 20;
-    const retryInterval = 2000;
+    const retryInterval = 1000;
     
     let retries = 0;
     
