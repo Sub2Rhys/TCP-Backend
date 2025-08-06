@@ -222,17 +222,33 @@ You also need to modify `DefaultEngine.ini` in the `cloudstorage` folder. Just c
 
 ---
 
+## "It still says I'm offline!"
+Chances are it's a client issue. If using something like Fiddler, make sure your settings are like this. Make sure to press `Trust Root Certificate`.
+
+<img width="710" height="381" alt="image" src="https://github.com/user-attachments/assets/df7a7c61-be66-4b28-836c-23f45bae1811" />
+
+For the script, you can use your domain instead of an IP address (Make sure to change `http` > `https`).
+
+```csharp
+import System;
+import System.Web;
+import System.Windows.Forms;
+import Fiddler;
+
+class Handlers
+{ 
+    static function OnBeforeRequest(oSession: Session) {
+        if (oSession.hostname.Contains(".ol.epicgames.com")) {
+            if (oSession.HTTPMethodIs("CONNECT"))
+            {
+                oSession["x-replywithtunnel"] = "FortniteTunnel";
+                return;
+            }
+            oSession.fullUrl = "https://rhysbot.com:8080" + oSession.PathAndQuery;
+        }
+    }
+}
+```
+
 ## Still not working?
 Chances are either I might've forgotten to put something in the guide or you've done something wrong. But that's not a problem, either send a message in our [Discord server](https://discord.gg/run22HRWn9) or create an issue request on this repo.
-
-
-
-
-
-
-
-
-
-
-
-
