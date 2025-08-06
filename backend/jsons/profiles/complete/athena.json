@@ -41,7 +41,17 @@
                     },
                     "party_assist_quest": "",
                     "pinned_quest": "",
-                    "daily_rewards": {},
+                    "daily_rewards": {
+                        "nextDefaultReward": 0,
+                        "totalDaysLoggedIn": 0,
+                        "lastClaimDate": "0001-01-01T00:00:00.000Z",
+                        "additionalSchedules": {
+                            "founderspackdailyrewardtoken": {
+                                "rewardsClaimed": 0,
+                                "claimedToday": true
+                            }
+                        }
+                    },
                     "favorite_victorypose": "",
                     "favorite_consumableemote": "",
                     "favorite_callingcard": "",
