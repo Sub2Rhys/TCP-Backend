@@ -1,7 +1,7 @@
 services:
   rhysserverv2:
     build: ./
-    container_name: RhysServerV2_APP
+    container_name: TCPBackend_APP
     ports:
       - 8080:8080
     networks:
@@ -17,10 +17,10 @@ services:
 
   db:
     image: mongo
-    container_name: RhysServerV2_DB
+    container_name: TCPBackend_DB
     restart: unless-stopped
     environment:
-      MONGO_INITDB_ROOT_USERNAME: rhysserverv2
+      MONGO_INITDB_ROOT_USERNAME: tcpbackend
       MONGO_INITDB_ROOT_PASSWORD: example # Replace with an actual password
 # networks:
 #   proxy:
