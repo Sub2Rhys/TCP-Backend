@@ -2,7 +2,7 @@ const config = require('../../../config.json');
 
 const axios = require('axios');
 
-const OPENFIRE_URL = `https://127.0.0.1:9090/plugins/restapi/v1`;
+const OPENFIRE_URL = `http://127.0.0.1:9090/plugins/restapi/v1`;
 const API_SECRET = `${config.openfire.admin_username}:${config.openfire.admin_password}`;
 const encodedSecret = Buffer.from(API_SECRET).toString('base64');
 
