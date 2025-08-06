@@ -23,6 +23,8 @@
         "debug": false
     },
     "openfire": {
+        "port": 9090,
+        "restApi": "http://127.0.0.1:9090",
         "admin_username": "xmpp-admin",
         "admin_password": null,
         "domain": null
