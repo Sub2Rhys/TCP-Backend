@@ -227,8 +227,6 @@ It might be a client issue. If using something like Fiddler, make sure your sett
 
 <img width="710" height="381" alt="image" src="https://github.com/user-attachments/assets/df7a7c61-be66-4b28-836c-23f45bae1811" />
 
-For the script, you can use your domain instead of an IP address (Make sure to change `http` > `https`).
-
 ```csharp
 import System;
 import System.Web;
@@ -244,9 +242,10 @@ class Handlers
                 oSession["x-replywithtunnel"] = "FortniteTunnel";
                 return;
             }
-            oSession.fullUrl = "https://rhysbot.com:8080" + oSession.PathAndQuery;
+            oSession.fullUrl = "http://127.0.0.1:8080" + oSession.PathAndQuery;
         }
     }
 }
 ```
+
 
