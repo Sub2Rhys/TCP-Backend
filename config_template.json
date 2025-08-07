@@ -3,7 +3,7 @@
     "database_url": "mongodb://127.0.0.1/backend",
     "backend": {
         "season": 2,
-        "xmpp": {
+        "matchmaking": {
             "address": "127.0.0.1",
             "port": 80
         },

@@ -91,7 +91,7 @@ wss.on('connection', async (ws, req) => {
     };
 });
 
-const port = config.backend.xmpp.port || 80;
+const port = config.backend.matchmaking.port || 80;
 server.listen(port, () => {
     console.log(`XMPP listening on port ${port}`);
 });

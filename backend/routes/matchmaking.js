@@ -31,7 +31,7 @@ app.get('/fortnite/api/game/v2/matchmakingservice/ticket/player/{*any}', require
     }
 
     res.json({
-        "serviceUrl": `ws://${config.backend.xmpp.address}:${config.backend.xmpp.port}`,
+        "serviceUrl": `ws://${config.backend.matchmaking.address}:${config.backend.matchmaking.port}`,
         "ticketType": "mms-player",
         "payload": functions.generateId().replace(/-/ig, ""),
         "signature": "account"
