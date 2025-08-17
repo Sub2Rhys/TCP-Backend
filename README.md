@@ -96,9 +96,9 @@ Download and install [Openfire](https://www.igniterealtime.org/downloads/), v5.0
 **Follow along very carefully with this part, one wrong setup could result in TCP not working like intended.
 A lesson I learnt that going back to a previous step in the setup can reset values back to default.**
 
-Firstly, you need to put your domain in here and make sure the rest of the settings are like mine
+Firstly, you need to put your domain in here and make sure the rest of the settings are like mine.
 
-<img width="569" height="445" alt="76456ec5-5dbc-4bf9-9835-30acb73fa81a" src="https://github.com/user-attachments/assets/6acf5000-f2f1-4062-8661-20a12380a52d" />
+<img width="569" height="445" alt="image" src="https://github.com/user-attachments/assets/d916b207-76df-402e-b930-7f22e9f20136" />
 
 ---
 
@@ -247,5 +247,6 @@ class Handlers
     }
 }
 ```
+
 
 
