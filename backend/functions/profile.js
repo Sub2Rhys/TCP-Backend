@@ -437,10 +437,10 @@ async function shopPurchase(req, res, recipients = []) {
 
         let profile = await handleProfile('common_core', accountId, ({ attributes }) => {
             if (!attributes.mtx_purchase_history?.purchases) {
-                attributes.mtx_purchase_history?.purchases = [];
+                attributes.mtx_purchase_history.purchases = [];
             }
             
-            attributes.mtx_purchase_history?.purchases.push({
+            attributes.mtx_purchase_history.purchases.push({
                 purchaseId: offerId,
                 offerId,
                 purchaseDate: new Date().toISOString(),
