@@ -114,9 +114,20 @@ app.post('/fortnite/api/game/v2/profile/:accountId/client/RefundMtxPurchase', re
 
         let price = 0;
         let profile = await handleProfile('common_core', accountId, ({ attributes, allChanges }) => {
+            if (!attributes.mtx_purchase_history?.refundsUsed) {
+                attributes.mtx_purchase_history.refundsUsed = 0;
+            }
             attributes.mtx_purchase_history.refundsUsed += 1
+
+            if (!attributes.mtx_purchase_history?.refundCredits) {
+                attributes.mtx_purchase_history?.refundCredits = 3;
+            }
             attributes.mtx_purchase_history.refundCredits -= 1
-            attributes.mtx_purchase_history.purchases = attributes.mtx_purchase_history.purchases.filter(obj => {
+
+            if (!attributes.mtx_purchase_history?.purchases) {
+                attributes.mtx_purchase_history?.purchases = [];
+            }
+            attributes.mtx_purchase_history?.purchases = attributes.mtx_purchase_history?.purchases.filter(obj => {
                 price == obj.totalMtxPaid
                 return obj.purchaseId.toLowerCase() !== purchaseId.toLowerCase() && obj.offerId.toLowerCase() !== purchaseId.toLowerCase();
             });
