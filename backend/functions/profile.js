@@ -436,10 +436,10 @@ async function shopPurchase(req, res, recipients = []) {
         const athena = await addItem({ accountId, items: offerId });
 
         let profile = await handleProfile('common_core', accountId, ({ attributes }) => {
-            if (!attributes.mtx_purchase_history?.purchases) {
-                attributes.mtx_purchase_history.purchases = [];
-            }
-            
+            attributes.mtx_purchase_history = attributes.mtx_purchase_history ?? {};
+        
+            attributes.mtx_purchase_history.purchases = attributes.mtx_purchase_history.purchases ?? [];
+        
             attributes.mtx_purchase_history.purchases.push({
                 purchaseId: offerId,
                 offerId,
