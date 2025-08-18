@@ -24,7 +24,6 @@ const rooms = {
                     registrationEnabled: true,
                     logEnabled: true,
                     persistent: true,
-                    maxUsers: 15,
                     broadcastPresenceRoles: ["moderator", "participant", "visitor"]
                 })
             )
