@@ -89,7 +89,7 @@ module.exports = {
         let { key, address, port } = options;
 
         if (subcommand === 'create') {
-            if (!(await requireAdmin(interaction))) return;
+            if (!(await requireHoster(interaction))) return;
 
             if (key.toLowerCase() == 'clear') {
                 return createResponse(interaction, RESPONSES.ERROR(`The key \`${key}\` cannot be created.`));
@@ -119,7 +119,7 @@ module.exports = {
         }
 
         if (subcommand === 'delete') {
-            if (!(await requireAdmin(interaction))) return;
+            if (!(await requireHoster(interaction))) return;
 
             const existingKey = await Matchmaking.findOne({ key });
             if (!existingKey) {
