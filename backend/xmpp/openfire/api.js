@@ -48,7 +48,7 @@ async function createUser({ username, name = '', email = '', password, propertie
         });
 
         return;
-    } catch {
+    } catch (err) {
         console.error(`Failed to create user ${username}: ${err.response?.statusText || err.message}`);
     }
 }
@@ -101,8 +101,17 @@ async function createChatRoom(payload) {
     try {
         await api.post(`/chatrooms?servicename=muc`, payload);
         return;
-    } catch {
+    } catch (err) {
         console.error(`Failed to create room: ${err.response?.statusText || err.message}`);
+    }
+}
+
+async function getChatRooms() {
+    try {
+        const res = await api.get(`/chatrooms?servicename=muc&type=all`);
+        return res?.data;
+    } catch (err) {
+        console.error(`Failed to find room: ${err.response?.statusText || err.message}`);
     }
 }
 
@@ -113,5 +122,6 @@ module.exports = {
     modifyUser,
     addUserToGroup,
     removeUserFromGroup,
-    createChatRoom
+    createChatRoom,
+    getChatRooms
 };
