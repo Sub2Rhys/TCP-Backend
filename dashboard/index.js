@@ -86,8 +86,8 @@ app.get('/services', (req, res) => {
        
         const services = [
             { id: 'backend', name: 'Backend', port: config.port || 8080, type: 'http', enabled: true },
-            { id: 'matchmaking', name: 'Matchmaking', port: config.backend?.xmpp?.port || 80, type: 'http', enabled: !!config.backend?.xmpp?.port },
-            { id: 'openfire', name: 'Openfire', port: config.openfire?.port || 9090, type: 'http', enabled: !!config.openfire },
+            { id: 'matchmaking', name: 'Matchmaking', port: config.backend?.xmpp?.port || 80, type: 'http', enabled: config.backend?.xmpp?.port },
+            { id: 'openfire', name: 'Openfire', port: config.openfire?.port || 9090, type: 'http', enabled: config.openfire },
             { id: 'database', name: 'Database', port: 27017, type: 'tcp', enabled: !!config.database_url, url: config.database_url }
         ];
        
