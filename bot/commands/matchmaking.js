@@ -4,7 +4,7 @@ const { requireAdmin, requireHoster, createResponse, extractOptions, RESPONSES }
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('key')
+        .setName('matchmaking')
         .setDescription('Perform different actions to do with matchmaking.')
         .addSubcommand(subcommand =>
             subcommand
