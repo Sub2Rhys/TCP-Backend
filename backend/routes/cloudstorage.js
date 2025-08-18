@@ -1,10 +1,24 @@
 const express = require('express');
 const app = express.Router();
 const fs = require('node:fs');
+const path = require('path');
 const crypto = require('node:crypto');
 const utf8 = require('utf8');
 
 const { Settings } = require('../../models/mongoose');
+const config = require('../../config.json');
+
+const filePath = path.join(__dirname, '../cloudstorage/DefaultEngine.ini');
+let content = fs.readFileSync(filePath, 'utf8');
+
+content = content.replace(
+    /(\[OnlineSubsystemMcp\.Xmpp\][\s\S]*?)(?=\n\[|$)/,
+    section => section
+        .replace(/Domain=[^\r\n]+/, `Domain="${config.openfire?.domain}"`)
+        .replace(/ServerAddr=[^\r\n]+/, `ServerAddr="${config.openfire?.domain}"`)
+);
+
+fs.writeFileSync(filePath, content, 'utf8');
 
 function getBody(req, res, next) {
     let body = '';
