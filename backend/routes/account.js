@@ -60,8 +60,6 @@ app.post('/account/api/oauth/token', async (req, res) => {
             const sessionId = crypto.randomBytes(16).toString('hex');
             const { accessToken, refreshToken } = await generateTokenPair(user.userId, sessionId);
 
-            trackUserIP(user.userId, clientIP);
-
             try {
                 if (!user.displayName.toLowerCase().includes("host-")) {
                     await modifyUser(user.userId, { password: accessToken.token });
@@ -102,8 +100,6 @@ app.post('/account/api/oauth/token', async (req, res) => {
             const existingSessionId = global.sessions[validation.userId];
             
             const { accessToken, refreshToken: newRefreshToken } = await generateTokenPair(validation.userId, existingSessionId);
-
-            trackUserIP(validation.userId, clientIP);
 
             return res.json(createTokenResponse(accessToken, newRefreshToken, user, now));
         }
