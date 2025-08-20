@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express.Router();
 
-app.get('/content/api/pages/fortnite-game', ipAuth, async (req, res) => {
+app.get('/content/api/pages/fortnite-game', async (req, res) => {
     res.json({
         "_title": "Fortnite Game",
         "_activeDate": "2017-08-30T03:20:48.050Z",
