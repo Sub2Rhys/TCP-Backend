@@ -27,6 +27,7 @@ const rooms = {
                     canAnyoneDiscoverJID: true,
                     canChangeNickname: true,
                     registrationEnabled: true,
+                    maxUsers: 30,
                     logEnabled: true,
                     persistent: true,
                     broadcastPresenceRoles: ["moderator", "participant", "visitor"]
