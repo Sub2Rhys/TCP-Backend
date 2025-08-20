@@ -5,7 +5,7 @@ const crypto = require('node:crypto');
 const bcrypt = require('bcrypt');
 
 const { User } = require('../../models/mongoose');
-const { generateAccess, generateTokenPair, validateAccessToken, validateRefreshToken, revokeTokens, trackUserIP, getClientIP } = require('../functions/tokens');
+const { generateAccess, generateTokenPair, validateAccessToken, validateRefreshToken, revokeTokens } = require('../functions/tokens');
 const { handleProfile } = require('../functions/profile');
 const { modifyUser, addUserToGroup } = require('../xmpp/openfire/api');
 
@@ -36,7 +36,6 @@ function createTokenResponse(accessToken, refreshToken, user, now) {
 app.post('/account/api/oauth/token', async (req, res) => {
     const { username, password, grant_type, refresh_token } = req.body;
     const now = Date.now();
-    const clientIP = getClientIP(req);
 
     try {
         if (grant_type === 'password') {

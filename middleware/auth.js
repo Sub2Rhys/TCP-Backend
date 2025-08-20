@@ -1,4 +1,4 @@
-const { validateAccessToken, revokeTokens, trackUserIP, getClientIP } = require('../backend/functions/tokens');
+const { validateAccessToken, revokeTokens } = require('../backend/functions/tokens');
 const { User } = require('../models/mongoose');
 
 async function requireAuth(req, res, next) {
@@ -29,9 +29,6 @@ async function requireAuth(req, res, next) {
                 errorCode: "errors.com.epicgames.common.missing_action"
             });
         }
-
-        const clientIP = getClientIP(req);
-        trackUserIP(validation.userId, clientIP);
         
         req.user = { userId: validation.userId };
         next();
