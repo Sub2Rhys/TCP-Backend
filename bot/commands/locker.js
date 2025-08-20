@@ -187,8 +187,6 @@ module.exports = {
             const user = await validateAccount(interaction, true);
             if (!user) return;
 
-            if (!(await requireAdmin(interaction))) return;
-
             if (user.userId !== currentUserId) {
                 return createResponse(interaction, {
                     color: 'Red',
