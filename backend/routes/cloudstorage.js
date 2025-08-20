@@ -85,7 +85,6 @@ app.get('/fortnite/api/cloudstorage/user/:accountId/:fileName', requireAuth, asy
     }
 
     const binds = settings.seasons?.[req.season];
-    console.log(binds)
 
     if (binds) {
         const decodedBinds = utf8.decode(binds);
