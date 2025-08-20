@@ -200,9 +200,7 @@ async function revokeTokens(userId) {
     delete global.access_tokens[userId];
     delete global.refresh_tokens[userId];
     delete global.sessions[userId];
-    
-    removeIPTracking(userId);
-    
+        
     await removeTokenFromDatabase(userId);
 }
 
