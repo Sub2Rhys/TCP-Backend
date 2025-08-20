@@ -69,8 +69,6 @@ app.get('/fortnite/api/cloudstorage/system', (req, res) => {
 });
 
 app.get('/fortnite/api/cloudstorage/user/:accountId/:fileName', requireAuth, async (req, res) => {
-    if (req.params.fileName?.toLowerCase() != "clientsettings.sav") return res.status(204).end();
-
     if (req.cl == 3807424 || req.cl == 3825894) {
         req.season = '1';
     }
@@ -118,6 +116,9 @@ app.put('/fortnite/api/cloudstorage/user/:accountId/:fileName', getBody, require
 
 app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) => {
     try {
+        console.log(req.body)
+        console.log(req.query)
+        console.log(req.url)
         const name = 'ClientSettings.sav';
         let fileData = fs.readFileSync(`./backend/cloudstorage/${name}`);
 
