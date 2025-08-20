@@ -236,38 +236,6 @@ loadTokensFromDatabase();
 
 setInterval(cleanExpiredTokens, 30 * 60 * 1000);
 
-/*
-    the below functions are not used for malicious purposes, they are required to send specific content pages to specific users.
-    the content pages endpoint doesn't require any authentication so there's no true way to tell who's calling the endpoint unless we track user ids to ip addresses.
-    each request which has auth will send the user's ip to the backend and in response we store it until the user goes offline.
-*/
-
-function getClientIP(req) {
-    return req.ip || 
-           req.connection.remoteAddress || 
-           req.socket.remoteAddress ||
-           (req.connection.socket ? req.connection.socket.remoteAddress : null) ||
-           req.headers['x-forwarded-for']?.split(',')[0] ||
-           req.headers['x-real-ip'] ||
-           '127.0.0.1';
-}
-
-function trackUserIP(userId, ip) {
-    global.user_ips[ip] = userId;
-}
-
-function getUserIdByIP(ip) {
-    return global.user_ips[ip];
-}
-
-function removeIPTracking(userId) {
-    Object.keys(global.user_ips).forEach(ip => {
-        if (global.user_ips[ip] === userId) {
-            delete global.user_ips[ip];
-        }
-    });
-}
-
 module.exports = {
     generateAccess,
     generateRefresh,
@@ -275,9 +243,5 @@ module.exports = {
     validateAccessToken,
     validateRefreshToken,
     revokeTokens,
-    cleanExpiredTokens,
-    getClientIP,
-    trackUserIP,
-    getUserIdByIP,
-    removeIPTracking
+    cleanExpiredTokens
 };

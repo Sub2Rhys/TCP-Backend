@@ -1,26 +1,8 @@
 const express = require('express');
 const app = express.Router();
-const { User, Servers } = require('../../models/mongoose');
-const { getUserIdByIP, getClientIP } = require('../functions/tokens');
 
-/*
-    this whole custom page system is kinda shit and just a weird gimmick tbh i might delete so contentpages doesn't take 20 years to load up.
-*/
-
-async function ipAuth(req, res, next) {
-    const clientIP = getClientIP(req);
-    const userId = getUserIdByIP(clientIP);
-    
-    if (userId) {
-        req.userId = userId;
-        return next();
-    }
-    
-    res.status(404).end();
-}
-
-function createBaseResponse(newsMessages = [], messages = {}) {
-    return {
+app.get('/content/api/pages/fortnite-game', ipAuth, async (req, res) => {
+    res.json({
         "_title": "Fortnite Game",
         "_activeDate": "2017-08-30T03:20:48.050Z",
         "lastModified": "2024-12-09T23:20:04.923Z",
@@ -143,40 +125,7 @@ function createBaseResponse(newsMessages = [], messages = {}) {
             "_locale": "en-US",
             "_templateName": "FortniteGameSubgameSelectData"
         },
-        "battleroyalenews": {
-            "news": {
-                "_type": "Battle Royale News",
-                "messages": newsMessages,
-            }
-        },
-        ...messages
-    };
-}
-
-app.get('/content/api/pages/fortnite-game', ipAuth, async (req, res) => {
-    let newsMessages = [];
-    let messages = {};
-
-    try {
-        if (req.userId) {
-            const user = await User.findOne({ userId: req.userId });
-            if (user) {
-                const server = await Servers.findOne({ userId: user.hosterId || global.owner_id });
-                if (server && Array.isArray(server.news)) {
-                    newsMessages = server.news.map(item => {
-                        if (typeof item.image === "string" && req.cl >= 4305896) {
-                            item.image = item.image.replace(/w=\d+/g, 'w=1024');
-                        }
-                        return item;
-                    });
-                }
-            }
-        }
-    } catch (error) {
-        console.log(error)
-    }
-
-    res.json(createBaseResponse(newsMessages, messages));
+    });
 });
 
 module.exports = app;

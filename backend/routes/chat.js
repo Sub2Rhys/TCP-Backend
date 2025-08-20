@@ -5,9 +5,14 @@ const { createChatRoom } = require('../xmpp/openfire/api');
 require('../xmpp/openfire/client');
 
 const rooms = {
-    globalChatRooms: [{
-        roomName: "globalchat"
-    }],
+    globalChatRooms: [
+        {
+            roomName: "globalchat"
+        },
+        {
+            roomName: "psn"
+        }
+    ],
     founderChatRooms: [],
 };
 
