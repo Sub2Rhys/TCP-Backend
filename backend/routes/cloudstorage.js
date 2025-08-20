@@ -20,6 +20,8 @@ content = content.replace(
 
 fs.writeFileSync(filePath, content, 'utf8');
 
+global.platforms = {};
+
 function getBody(req, res, next) {
     let body = '';
     req.setEncoding('latin1');
@@ -69,6 +71,11 @@ app.get('/fortnite/api/cloudstorage/system', (req, res) => {
 });
 
 app.get('/fortnite/api/cloudstorage/user/:accountId/:fileName', requireAuth, async (req, res) => {
+    const fileName = req.params?.fileName;
+    if (fileName?.toLowerCase()?.includes('clientsettings')) {
+        global.platforms[req.user?.userId] = fileName.replace(/^ClientSettings|\.sav$/g, '');
+    }
+
     if (req.cl == 3807424 || req.cl == 3825894) {
         req.season = '1';
     }
@@ -116,10 +123,9 @@ app.put('/fortnite/api/cloudstorage/user/:accountId/:fileName', getBody, require
 
 app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) => {
     try {
-        console.log(req.body)
-        console.log(req.query)
-        console.log(req.url)
-        const name = 'ClientSettings.sav';
+        const platform = global.platforms[req.user?.userId];
+        console.log(platform)
+        const name = `ClientSettings${platform}.sav`;
         let fileData = fs.readFileSync(`./backend/cloudstorage/${name}`);
 
         let settings = await Settings.findOne({ userId: req.user?.userId });
