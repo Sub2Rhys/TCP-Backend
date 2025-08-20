@@ -82,7 +82,7 @@ app.get('/fortnite/api/receipts/v1/account/:accountId/receipts', async (req, res
     res.json({});
 });
 
-app.get('/eulatracking/api/shared/agreements/fn', async (req, res) => {
+app.get('/eulatracking/api/shared/agreements{*any}', async (req, res) => {
     res.json({});
 });
 

@@ -37,7 +37,7 @@ function getBody(req, res, next) {
 app.get('/fortnite/api/cloudstorage/system/:fileName', async (req, res) => {
     try {
         const file = fs.readFileSync(`./backend/cloudstorage/${req.params?.fileName}`);
-        res.send(file);
+        res.status(200).send(file);
     } catch (error) {
         res.status(204).end();
     }
@@ -49,7 +49,7 @@ app.get('/fortnite/api/cloudstorage/system', (req, res) => {
     fs.readdirSync('./backend/cloudstorage').forEach(name => {
         if (name.toLowerCase().endsWith(".ini")) {
             const file = JSON.stringify(fs.readFileSync(`./backend/cloudstorage/${name}`));
-
+            
             files.push({
                 "uniqueFilename": name,
                 "filename": name,
@@ -114,20 +114,41 @@ app.put('/fortnite/api/cloudstorage/user/:accountId/{*any}', getBody, requireAut
     res.status(204).end();
 });
 
-app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) => {
-    res.json({
-        "uniqueFilename": "ClientSettings.Sav",
-        "filename": "ClientSettings.Sav",
-        "hash": "47132059e51515dfac133a1be877e74c50ca2492",
-        "hash256": "",
-        "length": 23494,
-        "contentType": "binary/octet-stream",
-        "uploaded": "2024-11-30T16:31:23.328Z",
-        "storageType": "DSS",
-        "storageIds": {},
-        "metadata": {},
-        "accountId": req.user?.userId
-    });
+app.get('/fortnite/api/cloudstorage/user/:any', requireAuth, async (req, res) => {
+    try {
+        const name = 'ClientSettings.sav';
+        let fileData = fs.readFileSync(`./backend/cloudstorage/${name}`);
+
+        let settings = await Settings.findOne({ userId: req.user?.userId });
+        if (!settings) {
+            settings = new Settings({ userId: req.user?.userId });
+            await settings.save();
+        }
+
+        const binds = settings.seasons?.[req.season];
+
+        if (binds) {
+            const decodedBinds = Buffer.from(utf8.decode(binds), 'latin1');
+            fileData = decodedBinds;
+        }
+
+        res.json({
+            "uniqueFilename": name,
+            "filename": name,
+            "hash": crypto.createHash('sha1').update(fileData).digest('hex'),
+            "hash256": crypto.createHash('sha256').update(fileData).digest('hex'),
+            "length": fileData.length,
+            "contentType": 'application/octet-stream',
+            "uploaded": "2024-11-30T16:31:23.328Z",
+            "storageType": "S3",
+            "storageIds": {},
+            "accountId": req.user?.userId,
+            "doNotCache": false
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal server error');
+    }
 });
 
 module.exports = app;
