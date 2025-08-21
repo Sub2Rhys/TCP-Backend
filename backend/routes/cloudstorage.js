@@ -96,9 +96,7 @@ app.get('/fortnite/api/cloudstorage/user/:accountId/:fileName', requireAuth, asy
 
 app.put('/fortnite/api/cloudstorage/user/:accountId/:fileName', getBody, requireAuth, async (req, res) => {
     const fileName = req.params?.fileName;
-    console.log(fileName)
     if (fileName?.toLowerCase()?.includes('clientsettings')) {
-        console.log("lol")
         global.platforms[req.user?.userId] = fileName.replace(/^ClientSettings|\.sav$/g, '');
     }
 
@@ -125,7 +123,7 @@ app.put('/fortnite/api/cloudstorage/user/:accountId/:fileName', getBody, require
 
 app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) => {
     try {
-        const platform = global.platforms[req.user?.userId];
+        const platform = global.platforms?.[req.user?.userId] || "";
         const name = `ClientSettings${platform}.sav`;
         let fileData = fs.readFileSync(`./backend/cloudstorage/${name}`);
 
