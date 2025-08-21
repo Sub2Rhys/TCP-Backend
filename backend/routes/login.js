@@ -126,4 +126,13 @@ app.get('/launcher/api/public/distributionpoints/', (req, res) => {
     });
 });
 
+app.get('/account/api/epicdomains/ssodomains', async (req, res) => {
+    res.json([
+        "unrealengine.com",
+        "unrealtournament.com",
+        "fortnite.com",
+        "epicgames.com"
+    ]);
+});
+
 module.exports = app;
