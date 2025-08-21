@@ -133,8 +133,8 @@ app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) 
         }
 
         res.json({
-            "uniqueFilename": name?.replace('.sav', 'PS4.sav'),
-            "filename": name?.replace('.sav', 'PS4.sav'),
+            "uniqueFilename": name?.replace('.sav', '.sav'),
+            "filename": name?.replace('.sav', '.sav'),
             "hash": crypto.createHash('sha1').update(fileData).digest('hex'),
             "hash256": crypto.createHash('sha256').update(fileData).digest('hex'),
             "length": fileData.length,
