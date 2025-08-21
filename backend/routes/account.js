@@ -266,7 +266,6 @@ app.delete('/account/api/oauth/sessions/kill/:token', requireAuth, async (req, r
         if (validation.userId) {
             delete global.keys[validation.userId];
             delete global.versions[validation.userId];
-            delete global.platforms[validation.userId]
 
             await handleProfile('common_core', validation.userId, ({ profile }) => {
                 profile.profileChanges = profile.profileChanges.filter(item => {
