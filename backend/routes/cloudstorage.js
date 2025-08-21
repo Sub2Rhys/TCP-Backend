@@ -38,6 +38,11 @@ function getBody(req, res, next) {
 
 app.get('/fortnite/api/cloudstorage/system/:fileName', async (req, res) => {
     try {
+        const fileName = req.params?.fileName;
+        if (fileName?.toLowerCase()?.includes('clientsettings')) {
+            global.platforms[req.user?.userId] = fileName.replace(/^ClientSettings|\.sav$/g, '');
+        }
+
         const file = fs.readFileSync(`./backend/cloudstorage/${req.params?.fileName}`);
         res.status(200).send(file);
     } catch (error) {
