@@ -5,6 +5,29 @@ const { getProfile, handleProfile, shopPurchase, bpPurchase, addItem, modifyCurr
 const { itemIdValidator, getItemDetails } = require('../functions/validation');
 const { Profile } = require('../../models/mongoose');
 
+app.post('/fortnite/api/game/v2/profile/:accountId/dedicated_server/{*any}', requireAuth, async (req, res) => {
+    try {
+        const { accountId } = req.params;
+
+        await Profile.updateOne(
+            { userId: accountId },
+            {
+                $set: { 'profiles.athena.profileChanges.0.profile.updated': new Date().toISOString() },
+                $inc: {
+                    'profiles.athena.profileRevision': 1,
+                    'profiles.athena.profileChanges.0.profile.rvn': 1,
+                }
+            }
+        );
+
+        const profile = await Profile.findOne({ userId: accountId }, 'profiles.athena').lean();
+        res.json(profile?.profiles?.athena || {});
+    } catch (err) {
+        console.error(err.message);
+        res.json({});
+    }
+});
+
 app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/QueryProfile', requireAuth, async (req, res) => {
     const profile = await getProfile({ req, profileId: req.query.profileId, userId: req.user.userId });
     res.json(profile);
@@ -235,29 +258,6 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/RemoveGiftBox', requir
     } catch (err) {
         console.error('RemoveGiftBox error:', err);
         res.status(500).json({});
-    }
-});
-
-app.post('/fortnite/api/game/v2/profile/:accountId/dedicated_server/{*any}', requireAuth, async (req, res) => {
-    try {
-        const { accountId } = req.params;
-
-        await Profile.updateOne(
-            { userId: accountId },
-            {
-                $set: { 'profiles.athena.profileChanges.0.profile.updated': new Date().toISOString() },
-                $inc: {
-                    'profiles.athena.profileRevision': 1,
-                    'profiles.athena.profileChanges.0.profile.rvn': 1,
-                }
-            }
-        );
-
-        const profile = await Profile.findOne({ userId: accountId }, 'profiles.athena').lean();
-        res.json(profile?.profiles?.athena || {});
-    } catch (err) {
-        console.error(err.message);
-        res.json({});
     }
 });
 

@@ -88,7 +88,7 @@ async function requireAdmin(interaction) {
 }
 
 async function requireHoster(interaction) {
-    if (!isAdmin(interaction.user.id)) {
+    if (!isHoster(interaction.user.id)) {
         await createResponse(interaction, RESPONSES.ACCESS_DENIED_HOSTER);
         return false;
     }

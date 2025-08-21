@@ -421,8 +421,4 @@ app.get('/friends/api/public/list/fortnite/:accountId/recentPlayers', async (req
     res.json({ recentPlayers: {} });
 });
 
-app.get('/fortnite/api/game/v2/friendcodes/{*any}/epic', async (req, res) => {
-    res.json([]);
-});
-
 module.exports = app;
