@@ -24,7 +24,8 @@ app.post('/datarouter/api/v1/public/{*any}', async (req, res) => {
 });
 
 app.post('/fortnite/api/game/v2/tryPlayOnPlatform/{*any}', async (req, res) => {
-    res.send("true");
+    res.setHeader("Content-Type", "text/plain");
+    res.send(true);
 });
 
 app.get('/lightswitch/api/service/bulk/status', async (req, res) => {
