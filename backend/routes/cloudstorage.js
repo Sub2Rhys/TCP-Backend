@@ -38,11 +38,6 @@ function getBody(req, res, next) {
 
 app.get('/fortnite/api/cloudstorage/system/:fileName', async (req, res) => {
     try {
-        const fileName = req.params?.fileName;
-        if (fileName?.toLowerCase()?.includes('clientsettings')) {
-            global.platforms[req.user?.userId] = fileName.replace(/^ClientSettings|\.sav$/g, '');
-        }
-
         const file = fs.readFileSync(`./backend/cloudstorage/${req.params?.fileName}`);
         res.status(200).send(file);
     } catch (error) {
@@ -76,11 +71,6 @@ app.get('/fortnite/api/cloudstorage/system', (req, res) => {
 });
 
 app.get('/fortnite/api/cloudstorage/user/:accountId/:fileName', requireAuth, async (req, res) => {
-    const fileName = req.params?.fileName;
-    if (fileName?.toLowerCase()?.includes('clientsettings')) {
-        global.platforms[req.user?.userId] = fileName.replace(/^ClientSettings|\.sav$/g, '');
-    }
-
     if (req.cl == 3807424 || req.cl == 3825894) {
         req.season = '1';
     }
@@ -105,6 +95,11 @@ app.get('/fortnite/api/cloudstorage/user/:accountId/:fileName', requireAuth, asy
 });
 
 app.put('/fortnite/api/cloudstorage/user/:accountId/:fileName', getBody, requireAuth, async (req, res) => {
+    const fileName = req.params?.fileName;
+    if (fileName?.toLowerCase()?.includes('clientsettings')) {
+        global.platforms[req.user?.userId] = fileName.replace(/^ClientSettings|\.sav$/g, '');
+    }
+
     if (req.cl == 3807424 || req.cl == 3825894) {
         req.season = '1';
     }
@@ -129,7 +124,6 @@ app.put('/fortnite/api/cloudstorage/user/:accountId/:fileName', getBody, require
 app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) => {
     try {
         const platform = global.platforms[req.user?.userId];
-        console.log(platform)
         const name = `ClientSettings${platform}.sav`;
         let fileData = fs.readFileSync(`./backend/cloudstorage/${name}`);
 
