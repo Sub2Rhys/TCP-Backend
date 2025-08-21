@@ -116,7 +116,7 @@ app.put('/fortnite/api/cloudstorage/user/:accountId/:fileName', getBody, require
 
 app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) => {
     try {
-        const name = `ClientSettingsPS4.sav`;
+        const name = `ClientSettings.sav`;
         let fileData = fs.readFileSync(`./backend/cloudstorage/${name}`);
 
         let settings = await Settings.findOne({ userId: req.user?.userId });
@@ -133,8 +133,8 @@ app.get('/fortnite/api/cloudstorage/user/{*any}', requireAuth, async (req, res) 
         }
 
         res.json({
-            "uniqueFilename": name,
-            "filename": name,
+            "uniqueFilename": name?.replace('.sav', 'PS4.sav'),
+            "filename": name?.replace('.sav', 'PS4.sav'),
             "hash": crypto.createHash('sha1').update(fileData).digest('hex'),
             "hash256": crypto.createHash('sha256').update(fileData).digest('hex'),
             "length": fileData.length,
