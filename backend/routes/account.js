@@ -82,7 +82,7 @@ app.post('/account/api/oauth/token', async (req, res) => {
 
             const validation = await validateRefreshToken(refresh_token);
             if (!validation) {
-                return res.status(401).json({ 
+                return res.status(400).json({ 
                     errorMessage: "Invalid or expired refresh token", 
                     errorCode: "errors.com.epicgames.common.oauth.invalid_token" 
                 });
@@ -91,7 +91,7 @@ app.post('/account/api/oauth/token', async (req, res) => {
             const user = await User.findOne({ userId: validation.userId }).lean();
             if (!user) {
                 await revokeTokens(validation.userId);
-                return res.status(404).json({ 
+                return res.status(400).json({ 
                     errorMessage: "User not found", 
                     errorCode: "errors.com.epicgames.account.user_not_found" 
                 });
@@ -251,6 +251,10 @@ app.get('/account/api/public/account/:accountId', requireAuth, async (req, res) 
 });
 
 app.get('/account/api/public/account/:accountId/externalAuths', requireAuth, (req, res) => {
+    res.json({});
+});
+
+app.post('/account/api/public/account/:accountId/deviceAuth', requireAuth, (req, res) => {
     res.json({});
 });
 

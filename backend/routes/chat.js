@@ -37,7 +37,7 @@ const rooms = {
     } catch {}
 })();
 
-app.post(['/fortnite/api/game/v2/chat/{*any}/{*any}/{*any}/pc', '/fortnite/api/game/v2/chat/{*any}/{*any}/pc'], (req, res) => {
+app.post('/fortnite/api/game/v2/chat{*any}', (req, res) => {
     const response = {
         ...rooms,
     };

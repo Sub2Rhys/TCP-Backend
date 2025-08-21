@@ -82,11 +82,20 @@ app.get('/fortnite/api/receipts/v1/account/:accountId/receipts', async (req, res
     res.json({});
 });
 
+app.get('/eulatracking/api/public/agreements{*any}', async (req, res) => {
+    const eula = JSON.parse(fs.readFileSync('./backend/jsons/eula.json', 'utf-8'));
+    res.json(eula);
+});
+
 app.get('/eulatracking/api/shared/agreements{*any}', async (req, res) => {
     res.json({});
 });
 
 app.get('/api/v1/events/Fortnite/download/{*any}', async (req, res) => {
+    res.json({});
+});
+
+app.post('/eulatracking/api/public/agreements/fn/version/{*any}/account/:accountId/{*any}', async (req, res) => {
     res.json({});
 });
 
@@ -102,6 +111,18 @@ app.get('/fortnite/api/version', (req, res) => {
         "version": req.version,
         "branch": `Release-${req.version}`,
         "modules": {}
+    });
+});
+
+app.get('/launcher/api/public/distributionpoints/', (req, res) => {
+    res.json({
+        "distributions": [
+            "https://download.epicgames.com/",
+            "https://download2.epicgames.com/",
+            "https://download3.epicgames.com/",
+            "https://download4.epicgames.com/",
+            "https://epicgames-download1.akamaized.net/"
+        ]
     });
 });
 
