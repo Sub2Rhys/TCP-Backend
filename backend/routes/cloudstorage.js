@@ -36,10 +36,17 @@ function getBody(req, res, next) {
 
 app.get('/fortnite/api/cloudstorage/system/:fileName', async (req, res) => {
     try {
-        const file = fs.readFileSync(`./backend/cloudstorage/${req.params?.fileName}`);
+        const baseDir = path.resolve('./backend/cloudstorage');
+        const requestedPath = path.resolve(baseDir, req.params.fileName);
+
+        if (!requestedPath.startsWith(baseDir)) {
+            return res.status(400).send('Invalid file path');
+        }
+
+        const file = fs.readFileSync(requestedPath);
         res.status(200).send(file);
     } catch (error) {
-        res.status(204).end();
+        res.status(404).end();
     }
 });
 

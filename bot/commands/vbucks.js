@@ -10,34 +10,34 @@ module.exports = {
             subcommand
                 .setName('set')
                 .setDescription('Sets the V-Buck amount on the account.')
-                .addStringOption(option =>
-                    option
-                        .setName('username')
-                        .setDescription('The username for the account.')
-                        .setRequired(false)
-                )
                 .addNumberOption(option =>
                     option
                         .setName('amount')
                         .setDescription('The amount of V-Bucks.')
                         .setRequired(true)
                 )
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('difference')
-                .setDescription('Add/Remove V-Bucks to/from the account.')
                 .addStringOption(option =>
                     option
                         .setName('username')
                         .setDescription('The username for the account.')
                         .setRequired(false)
                 )
+        )
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName('difference')
+                .setDescription('Add/Remove V-Bucks to/from the account.')
                 .addNumberOption(option =>
                     option
                         .setName('amount')
                         .setDescription('The amount of V-Bucks (to remove V-Bucks enter a negative number).')
                         .setRequired(true)
+                )
+                .addStringOption(option =>
+                    option
+                        .setName('username')
+                        .setDescription('The username for the account.')
+                        .setRequired(false)
                 )
         ),
     async execute(interaction) {
