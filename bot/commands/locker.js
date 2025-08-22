@@ -60,7 +60,7 @@ module.exports = {
                     return createResponse(interaction, {
                         color: 'Red',
                         title: 'Access Denied',
-                        description: 'Only administrators can modify other users\' lockers.'
+                        description: 'Only administrators can modify other lockers.'
                     });
                 }
                 targetUser = await validateUser(interaction, username);
@@ -94,7 +94,7 @@ module.exports = {
                     return createResponse(interaction, {
                         color: 'Red',
                         title: 'Access Denied',
-                        description: 'Only administrators can modify other users\' lockers.'
+                        description: 'Only administrators can modify other lockers.'
                     });
                 }
                 targetUser = await validateUser(interaction, username);
