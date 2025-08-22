@@ -51,24 +51,31 @@ module.exports = {
         const currentUserId = interaction.user.id;
 
         if (subcommand === 'bless') {
-            const user = await validateUser(interaction, username);
-            if (!user) return;
-
-            if (user.userId !== currentUserId && !isAdmin(currentUserId)) {
-                return createResponse(interaction, {
-                    color: 'Red',
-                    title: 'Access Denied',
-                    description: 'You can only modify your own locker.'
-                });
+            // If no username provided, use the command user's account
+            let targetUser;
+            if (!username) {
+                targetUser = await validateAccount(interaction, true);
+                if (!targetUser) return;
+            } else {
+                // Username provided - check if user is admin
+                if (!isAdmin(currentUserId)) {
+                    return createResponse(interaction, {
+                        color: 'Red',
+                        title: 'Access Denied',
+                        description: 'Only administrators can modify other users\' lockers.'
+                    });
+                }
+                targetUser = await validateUser(interaction, username);
+                if (!targetUser) return;
             }
 
             const complete_athena = JSON.parse(
                 fs.readFileSync('./backend/jsons/profiles/complete/athena.json', 'utf-8')
-                  .replace(/USER_ID/g, user.userId)
+                  .replace(/USER_ID/g, targetUser.userId)
             );
 
             await Profile.updateOne(
-                { userId: user.userId },
+                { userId: targetUser.userId },
                 { 
                     $set: {
                         [`profiles.athena.profileChanges.0.profile.items`]: complete_athena.profileChanges?.[0].profile.items,
@@ -76,33 +83,40 @@ module.exports = {
                 }
             ).lean();
 
-            return createResponse(interaction, RESPONSES.SUCCESS(`The user \`${user.displayName}\` has been blessed with every cosmetic in the game.`));
+            return createResponse(interaction, RESPONSES.SUCCESS(`The user \`${targetUser.displayName}\` has been blessed with every cosmetic in the game.`));
         }
 
         if (subcommand === 'reset') {
-            const user = await validateUser(interaction, username);
-            if (!user) return;
-
-            if (user.userId !== currentUserId && !isAdmin(currentUserId)) {
-                return createResponse(interaction, {
-                    color: 'Red',
-                    title: 'Access Denied',
-                    description: 'You can only modify your own locker.'
-                });
+            // If no username provided, use the command user's account
+            let targetUser;
+            if (!username) {
+                targetUser = await validateAccount(interaction, true);
+                if (!targetUser) return;
+            } else {
+                // Username provided - check if user is admin
+                if (!isAdmin(currentUserId)) {
+                    return createResponse(interaction, {
+                        color: 'Red',
+                        title: 'Access Denied',
+                        description: 'Only administrators can modify other users\' lockers.'
+                    });
+                }
+                targetUser = await validateUser(interaction, username);
+                if (!targetUser) return;
             }
 
-            const profile = await Profile.findOne({ userId: user.userId });
+            const profile = await Profile.findOne({ userId: targetUser.userId });
             if (!profile) {
                 return createResponse(interaction, RESPONSES.ERROR('Profile not found for this user.'));
             }
 
             const athena = JSON.parse(
                 fs.readFileSync('./backend/jsons/profiles/athena.json', 'utf-8')
-                  .replace(/USER_ID/g, user.userId)
+                  .replace(/USER_ID/g, targetUser.userId)
             );
             const common_core = JSON.parse(
                 fs.readFileSync('./backend/jsons/profiles/common_core.json', 'utf-8')
-                  .replace(/USER_ID/g, user.userId)
+                  .replace(/USER_ID/g, targetUser.userId)
             );
 
             const createdAt = new Date().toISOString();
@@ -116,7 +130,7 @@ module.exports = {
 
             await profile.save();
 
-            return createResponse(interaction, RESPONSES.SUCCESS(`The locker for \`${user.displayName}\` has been reset successfully.`));
+            return createResponse(interaction, RESPONSES.SUCCESS(`The locker for \`${targetUser.displayName}\` has been reset successfully.`));
         }
 
         if (subcommand === 'stats') {
