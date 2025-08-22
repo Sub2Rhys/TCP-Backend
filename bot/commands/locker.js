@@ -22,7 +22,7 @@ module.exports = {
                     option
                         .setName('username')
                         .setDescription('The username for the account.')
-                        .setRequired(true)
+                        .setRequired(false)
                 )
         )
         .addSubcommand(subcommand =>
@@ -33,7 +33,7 @@ module.exports = {
                     option
                         .setName('username')
                         .setDescription('The username for the account.')
-                        .setRequired(true)
+                        .setRequired(false)
                 )
         )
         .addSubcommand(subcommand =>
