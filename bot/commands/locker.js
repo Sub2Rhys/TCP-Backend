@@ -51,13 +51,11 @@ module.exports = {
         const currentUserId = interaction.user.id;
 
         if (subcommand === 'bless') {
-            // If no username provided, use the command user's account
             let targetUser;
             if (!username) {
                 targetUser = await validateAccount(interaction, true);
                 if (!targetUser) return;
             } else {
-                // Username provided - check if user is admin
                 if (!isAdmin(currentUserId)) {
                     return createResponse(interaction, {
                         color: 'Red',
@@ -87,13 +85,11 @@ module.exports = {
         }
 
         if (subcommand === 'reset') {
-            // If no username provided, use the command user's account
             let targetUser;
             if (!username) {
                 targetUser = await validateAccount(interaction, true);
                 if (!targetUser) return;
             } else {
-                // Username provided - check if user is admin
                 if (!isAdmin(currentUserId)) {
                     return createResponse(interaction, {
                         color: 'Red',
