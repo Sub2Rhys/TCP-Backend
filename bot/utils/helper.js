@@ -43,9 +43,18 @@ function isAdmin(userId) {
     return config.discord.admins.includes(userId);
 }
 
-function isHoster(interaction) {
-    const member = interaction.member;
-    if (!member) return false;
+async function isHoster(interaction) {
+    if (!interaction.guild) return false;
+
+    let member = interaction.member;
+    if (!member) {
+        try {
+            member = await interaction.guild.members.fetch(interaction.user.id);
+        } catch {
+            return false;
+        }
+    }
+
     return member.roles.cache.has(config.discord.hoster_role);
 }
 
@@ -88,7 +97,7 @@ async function requireAdmin(interaction) {
 }
 
 async function requireHoster(interaction) {
-    if (!isHoster(interaction.user.id)) {
+    if (!isHoster(interaction.user)) {
         await createResponse(interaction, RESPONSES.ACCESS_DENIED_HOSTER);
         return false;
     }
