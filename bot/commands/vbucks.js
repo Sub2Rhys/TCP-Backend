@@ -56,16 +56,16 @@ module.exports = {
             targetUser = await validateAccount(interaction, true);
             if (!targetUser) return;
         } else {
-            if (!isUserAdmin) {
+            targetUser = await validateUser(interaction, username);
+            if (!targetUser) return;
+            
+            if (targetUser.userId !== currentUserId && !isUserAdmin) {
                 return createResponse(interaction, {
                     color: 'Red',
                     title: 'Access Denied',
-                    description: 'Only administrators can modify other accounts.'
+                    description: 'You can only modify your own account.'
                 });
             }
-            
-            targetUser = await validateUser(interaction, username);
-            if (!targetUser) return;
         }
 
         modifyCurrency(targetUser.userId, amount, subcommand);

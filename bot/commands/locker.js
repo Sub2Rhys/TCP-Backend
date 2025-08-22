@@ -56,15 +56,16 @@ module.exports = {
                 targetUser = await validateAccount(interaction, true);
                 if (!targetUser) return;
             } else {
-                if (!isAdmin(currentUserId)) {
+                targetUser = await validateUser(interaction, username);
+                if (!targetUser) return;
+                
+                if (targetUser.userId !== currentUserId && !isAdmin(currentUserId)) {
                     return createResponse(interaction, {
                         color: 'Red',
                         title: 'Access Denied',
-                        description: 'Only administrators can modify other accounts.'
+                        description: 'You can only modify your own account.'
                     });
                 }
-                targetUser = await validateUser(interaction, username);
-                if (!targetUser) return;
             }
 
             const complete_athena = JSON.parse(
@@ -90,15 +91,16 @@ module.exports = {
                 targetUser = await validateAccount(interaction, true);
                 if (!targetUser) return;
             } else {
-                if (!isAdmin(currentUserId)) {
+                targetUser = await validateUser(interaction, username);
+                if (!targetUser) return;
+                
+                if (targetUser.userId !== currentUserId && !isAdmin(currentUserId)) {
                     return createResponse(interaction, {
                         color: 'Red',
                         title: 'Access Denied',
-                        description: 'Only administrators can modify other accounts.'
+                        description: 'You can only modify your own account.'
                     });
                 }
-                targetUser = await validateUser(interaction, username);
-                if (!targetUser) return;
             }
 
             const profile = await Profile.findOne({ userId: targetUser.userId });
