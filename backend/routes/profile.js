@@ -28,12 +28,12 @@ app.post('/fortnite/api/game/v2/profile/:accountId/dedicated_server/{*any}', req
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/QueryProfile', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/QueryProfile', requireAuth, async (req, res) => {
     const profile = await getProfile({ req, profileId: req.query.profileId, userId: req.user.userId });
     res.json(profile);
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/EquipBattleRoyaleCustomization', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/EquipBattleRoyaleCustomization', requireAuth, async (req, res) => {
     try {
         const { accountId } = req.params;
         const { slotName, indexWithinSlot, itemToSlot, variantUpdates } = req.body;
@@ -73,7 +73,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/EquipBattleRoyaleCusto
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/SetBattleRoyaleBanner', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/SetBattleRoyaleBanner', requireAuth, async (req, res) => {
     try {
         const { accountId } = req.params;
         const { homebaseBannerIconId, homebaseBannerColorId } = req.body;
@@ -90,7 +90,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/SetBattleRoyaleBanner'
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/PurchaseCatalogEntry', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/PurchaseCatalogEntry', requireAuth, async (req, res) => {
     const { offerId } = req.body;
 
     const offerRegex = /^[A-Z0-9]{32}$/;
@@ -101,7 +101,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/PurchaseCatalogEntry',
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/GiftCatalogEntry', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/GiftCatalogEntry', requireAuth, async (req, res) => {
     const { offerId, receiverAccountIds } = req.body;
 
     const offerRegex = /^[A-Z0-9]{32}$/;
@@ -110,7 +110,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/GiftCatalogEntry', req
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/RefundMtxPurchase', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/RefundMtxPurchase', requireAuth, async (req, res) => {
     try {
         const { accountId } = req.params;
         const { purchaseId } = req.body;
@@ -170,7 +170,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/RefundMtxPurchase', re
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/MarkItemSeen', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/MarkItemSeen', requireAuth, async (req, res) => {
     try {
         const { accountId } = req.params;
         const { itemIds } = req.body;
@@ -189,7 +189,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/MarkItemSeen', require
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/SetItemFavoriteStatusBatch', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/SetItemFavoriteStatusBatch', requireAuth, async (req, res) => {
     try {
         const { accountId } = req.params;
         const { itemIds, itemFavStatus } = req.body;
@@ -209,7 +209,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/SetItemFavoriteStatusB
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/ClaimMfaEnabled', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/ClaimMfaEnabled', requireAuth, async (req, res) => {
     try {
         const athena = await getProfile({ req, profileId: 'athena', userId: req.user.userId });
         const hasMfaReward = athena?.profileChanges?.[0]?.profile?.stats?.attributes?.mfa_reward_claimed || true;
@@ -237,7 +237,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/ClaimMfaEnabled', requ
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/RemoveGiftBox', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/RemoveGiftBox', requireAuth, async (req, res) => {
     try {
         const { accountId } = req.params;
         const { giftBoxItemId } = req.body;
@@ -261,7 +261,7 @@ app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/RemoveGiftBox', requir
     }
 });
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/CreateOrUpgradeOutpostItem', requireAuth, async (req, res) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/CreateOrUpgradeOutpostItem', requireAuth, async (req, res) => {
     try {
         const { accountId } = req.params;
         const { profileId } = req.query;
@@ -325,7 +325,7 @@ const endpoints = [
     'IssueFriendCode',
 ];
 
-app.post('/fortnite/api/game/v2/profile/:accountId/{*any}/:action', requireAuth, (req, res, next) => {
+app.post('/fortnite/api/game/v2/profile/:accountId/:type/:action', requireAuth, (req, res, next) => {
     const { action } = req.params;
 
     if (endpoints.includes(action)) {
