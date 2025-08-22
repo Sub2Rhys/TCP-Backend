@@ -40,28 +40,30 @@ module.exports = {
                         .setRequired(true)
                 )
         ),
-
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
         const options = extractOptions(interaction, [
             { key: 'username', type: 'string' },
             { key: 'amount', type: 'number' }
         ]);
+        
         const { username, amount } = options;
         const currentUserId = interaction.user.id;
-
+        const isUserAdmin = isAdmin(currentUserId);
         let targetUser;
+
         if (!username) {
             targetUser = await validateAccount(interaction, true);
             if (!targetUser) return;
         } else {
-            if (!isAdmin(currentUserId)) {
+            if (!isUserAdmin) {
                 return createResponse(interaction, {
                     color: 'Red',
                     title: 'Access Denied',
                     description: 'Only administrators can modify other accounts.'
                 });
             }
+            
             targetUser = await validateUser(interaction, username);
             if (!targetUser) return;
         }
@@ -69,12 +71,17 @@ module.exports = {
         modifyCurrency(targetUser.userId, amount, subcommand);
 
         let description = '';
+        const isModifyingSelf = targetUser.userId === currentUserId;
+        const userReference = isModifyingSelf ? 'You have' : `The user \`${targetUser.displayName}\` has`;
+
         switch (subcommand) {
             case 'set':
-                description = `The user \`${targetUser.displayName}\` has had their V-Bucks total set to \`${amount.toLocaleString()}\`.`;
+                description = `${userReference} had ${isModifyingSelf ? 'your' : 'their'} V-Bucks total set to \`${amount.toLocaleString()}\`.`;
                 break;
             case 'difference':
-                description = `The user \`${targetUser.displayName}\` has had their V-Bucks changed by a total of \`${amount.toLocaleString()}\`.`;
+                const actionWord = amount >= 0 ? 'added' : 'removed';
+                const absoluteAmount = Math.abs(amount);
+                description = `${userReference} had \`${absoluteAmount.toLocaleString()}\` V-Bucks ${actionWord} ${isModifyingSelf ? 'to your account' : 'to/from their account'}.`;
                 break;
             default:
                 description = 'An unknown error occurred.';
