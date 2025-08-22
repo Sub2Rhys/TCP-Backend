@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { modifyCurrency } = require('../../backend/functions/profile');
-const { requireAdmin, validateUser, createResponse, extractOptions, RESPONSES } = require('../utils/helper');
+const { requireAdmin, validateUser, validateAccount, createResponse, extractOptions, RESPONSES, isAdmin } = require('../utils/helper');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,7 +14,7 @@ module.exports = {
                     option
                         .setName('username')
                         .setDescription('The username for the account.')
-                        .setRequired(true)
+                        .setRequired(false)
                 )
                 .addNumberOption(option =>
                     option
@@ -31,7 +31,7 @@ module.exports = {
                     option
                         .setName('username')
                         .setDescription('The username for the account.')
-                        .setRequired(true)
+                        .setRequired(false)
                 )
                 .addNumberOption(option =>
                     option
@@ -48,21 +48,33 @@ module.exports = {
             { key: 'amount', type: 'number' }
         ]);
         const { username, amount } = options;
+        const currentUserId = interaction.user.id;
 
-        if (!(await requireAdmin(interaction))) return;
+        let targetUser;
+        if (!username) {
+            targetUser = await validateAccount(interaction, true);
+            if (!targetUser) return;
+        } else {
+            if (!isAdmin(currentUserId)) {
+                return createResponse(interaction, {
+                    color: 'Red',
+                    title: 'Access Denied',
+                    description: 'Only administrators can modify other accounts.'
+                });
+            }
+            targetUser = await validateUser(interaction, username);
+            if (!targetUser) return;
+        }
 
-        const user = await validateUser(interaction, username);
-        if (!user) return;
-
-        modifyCurrency(user.userId, amount, subcommand);
+        modifyCurrency(targetUser.userId, amount, subcommand);
 
         let description = '';
         switch (subcommand) {
             case 'set':
-                description = `The user \`${user.displayName}\` has had their V-Bucks total set to \`${amount.toLocaleString()}\`.`;
+                description = `The user \`${targetUser.displayName}\` has had their V-Bucks total set to \`${amount.toLocaleString()}\`.`;
                 break;
             case 'difference':
-                description = `The user \`${user.displayName}\` has had their V-Bucks changed by a total of \`${amount.toLocaleString()}\`.`;
+                description = `The user \`${targetUser.displayName}\` has had their V-Bucks changed by a total of \`${amount.toLocaleString()}\`.`;
                 break;
             default:
                 description = 'An unknown error occurred.';
