@@ -62,8 +62,7 @@ app.get('/content/api/pages/fortnite-game', async (req, res) => {
             "_templateName": "FortniteGameMOTD"
         },
         "lobby": {
-            "backgroundimage": "https://cdn2.unrealengine.com/Fortnite/fortnite-game/lobby/T_Lobby_SeasonX-2048x1024-24e02780ed533da8001016f4e6fb14dd15e2f860.png",
-            "stage": `seasonx`,
+            "stage": `season9`,
             "_title": "lobby",
             "_activeDate": "2019-05-31T21:24:39.892Z",
             "lastModified": "2019-07-31T21:24:17.119Z",
