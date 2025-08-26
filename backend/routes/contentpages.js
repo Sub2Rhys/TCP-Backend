@@ -2,7 +2,7 @@ const express = require('express');
 const app = express.Router();
 
 app.get('/content/api/pages/fortnite-game', async (req, res) => {
-    res.json({
+    const responseData = {
         "_title": "Fortnite Game",
         "_activeDate": "2017-08-30T03:20:48.050Z",
         "lastModified": "2024-12-09T23:20:04.923Z",
@@ -61,14 +61,6 @@ app.get('/content/api/pages/fortnite-game', async (req, res) => {
             "_locale": "en-US",
             "_templateName": "FortniteGameMOTD"
         },
-        "lobby": {
-            "stage": `season9`,
-            "_title": "lobby",
-            "_activeDate": "2019-05-31T21:24:39.892Z",
-            "lastModified": "2019-07-31T21:24:17.119Z",
-            "_locale": "en-US",
-            "_templateName": "FortniteGameLobby"
-        },
         "subgameselectdata": {
             "saveTheWorldUnowned": {
                 "_type": "CommonUI Simple Message",
@@ -123,8 +115,22 @@ app.get('/content/api/pages/fortnite-game', async (req, res) => {
             "lastModified": "2019-05-06T12:59:15.974Z",
             "_locale": "en-US",
             "_templateName": "FortniteGameSubgameSelectData"
-        },
-    });
+        }
+    };
+
+    if (req.season == 10) {
+        responseData.lobby = {
+            "backgroundimage": "https://cdn2.unrealengine.com/Fortnite/fortnite-game/lobby/T_Lobby_SeasonX-2048x1024-24e02780ed533da8001016f4e6fb14dd15e2f860.png",
+            "stage": "seasonx",
+            "_title": "lobby",
+            "_activeDate": "2019-05-31T21:24:39.892Z",
+            "lastModified": "2019-07-31T21:24:17.119Z",
+            "_locale": "en-US",
+            "_templateName": "FortniteGameLobby"
+        };
+    }
+
+    res.json(responseData);
 });
 
 module.exports = app;
