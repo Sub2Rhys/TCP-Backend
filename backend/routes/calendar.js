@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express.Router();
-
 const config = require('../../config.json');
 
 const getFutureDate = (days = 0) => {
@@ -17,14 +16,35 @@ app.get('/fortnite/api/calendar/v1/timeline', async (req, res) => {
     const now = new Date().toISOString();
 
     let lobby;
+    let activeEvents = [];
 
     if (req.cl >= 3807424 && req.cl <= 3825894) {
         lobby = 'LobbyWinterDecor';
     } else if (req.cl >= 4497486 && req.cl <= 4543176) {
         lobby = 'LobbySeason6Halloween';
+    } else if (req.season == 9) {
+        activeEvents.push({
+            "eventType": "EventFlag.Season9.Phase1",
+            "activeUntil": "9999-01-01T00:00:00.000Z",
+            "activeSince": "2020-01-01T00:00:00.000Z"
+        });
+        lobby = `LobbySeason9`;
     } else {
         lobby = `LobbySeason${req.season || 0}`;
     }
+
+    activeEvents.push(
+        {
+            "eventType": `EventFlag.${lobby}`,
+            "activeUntil": futureDateMonth,
+            "activeSince": now
+        },
+        {
+            "eventType": `EventFlag.Season${req.season || 0}`,
+            "activeUntil": futureDateMonth,
+            "activeSince": now
+        }
+    );
 
     res.json({
         "channels": {
@@ -36,18 +56,7 @@ app.get('/fortnite/api/calendar/v1/timeline', async (req, res) => {
                 "states": [
                     {
                         "validFrom": "0001-01-01T00:00:00.000Z",
-                        "activeEvents": [
-                            {
-                                "eventType": `EventFlag.${lobby}`,
-                                "activeUntil": futureDateMonth,
-                                "activeSince": now
-                            },
-                            {
-                                "eventType": `EventFlag.Season${req.season || 0}`,
-                                "activeUntil": futureDateMonth,
-                                "activeSince": now
-                            }
-                        ],
+                        "activeEvents": activeEvents,
                         "state": {
                             "activeStorefronts": [],
                             "eventNamedWeights": {},
@@ -60,7 +69,7 @@ app.get('/fortnite/api/calendar/v1/timeline', async (req, res) => {
                             "dailyStoreEnd": futureDate,
                             "sectionStoreEnds": {
                                 "Featured": futureDate
-                            },
+                            }
                         }
                     }
                 ],
