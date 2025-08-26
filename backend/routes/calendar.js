@@ -40,7 +40,7 @@ app.get('/fortnite/api/calendar/v1/timeline', async (req, res) => {
             "activeSince": now
         },
         {
-            "eventType": `EventFlag.Season${req.season || 0}`,
+            "eventType": `EventFlag.Season9`,
             "activeUntil": futureDateMonth,
             "activeSince": now
         }
@@ -60,8 +60,8 @@ app.get('/fortnite/api/calendar/v1/timeline', async (req, res) => {
                         "state": {
                             "activeStorefronts": [],
                             "eventNamedWeights": {},
-                            "seasonNumber": config.backend.season,
-                            "seasonTemplateId": `AthenaSeason:athenaseason${config.backend.season}`,
+                            "seasonNumber": 9,
+                            "seasonTemplateId": `AthenaSeason:athenaseason9`,
                             "seasonBegin": now,
                             "seasonEnd": futureDateMonth,
                             "seasonDisplayedEnd": futureDateMonth,
