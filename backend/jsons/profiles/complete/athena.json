@@ -184,6 +184,18 @@
                     },
                     "templateId": "AthenaGlider:DefaultGlider"
                 },
+                "AthenaDance:EID_DanceMoves": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaDance:EID_DanceMoves"
+                },
                 "AthenaCharacter:cid_random": {
                     "templateId": "AthenaCharacter:cid_random",
                     "attributes": {
@@ -31940,7 +31952,7 @@
                     "quantity": 1
                 }
             },
-            "commandRevision": 5
+            "commandRevision": 0
         },
         "profileCommandRevision": 0,
         "serverTime": "2024-12-08T02:24:12.396Z",
