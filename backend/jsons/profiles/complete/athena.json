@@ -2,18 +2,17 @@
     "profileRevision": 1,
     "profileId": "athena",
     "profileChangesBaseRevision": 1,
-    "profileChanges": [
-        {
-            "changeType": "fullProfileUpdate",
-            "profile": {
-                "created": "2018-04-06T00:42:48.010Z",
-                "updated": "2024-12-08T02:21:42.290Z",
-                "rvn": 1,
-                "wipeNumber": 1,
-                "accountId": "USER_ID",
-                "profileId": "athena",
-                "version": "no_version",
-                "stats": {
+    "profileChanges": [{
+        "changeType": "fullProfileUpdate",
+        "profile": {
+            "created": "2018-04-06T00:42:48.010Z",
+            "updated": "2024-12-08T02:21:42.290Z",
+            "rvn": 1,
+            "wipeNumber": 1,
+            "accountId": "USER_ID",
+            "profileId": "athena",
+            "version": "no_version",
+            "stats": {
                 "attributes": {
                     "season_match_boost": 0,
                     "loadouts": [],
@@ -63,8 +62,128 @@
                     "favorite_character": "",
                     "favorite_loadingscreen": ""
                 }
+            },
+            "items": {
+                "AthenaCharacter:CID_001_Athena_Commando_F_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_001_Athena_Commando_F_Default"
                 },
-                "items": {
+                "AthenaCharacter:CID_002_Athena_Commando_F_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_002_Athena_Commando_F_Default"
+                },
+                "AthenaCharacter:CID_003_Athena_Commando_F_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_003_Athena_Commando_F_Default"
+                },
+                "AthenaCharacter:CID_004_Athena_Commando_F_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_004_Athena_Commando_F_Default"
+                },
+                "AthenaCharacter:CID_005_Athena_Commando_M_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_005_Athena_Commando_M_Default"
+                },
+                "AthenaCharacter:CID_006_Athena_Commando_M_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_006_Athena_Commando_M_Default"
+                },
+                "AthenaCharacter:CID_007_Athena_Commando_M_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_007_Athena_Commando_M_Default"
+                },
+                "AthenaCharacter:CID_008_Athena_Commando_M_Default": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaCharacter:CID_008_Athena_Commando_M_Default"
+                },
+                "AthenaPickaxe:DefaultPickaxe": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaPickaxe:DefaultPickaxe"
+                },
+                "AthenaGlider:DefaultGlider": {
+                    "attributes": {
+                        "favorite": false,
+                        "item_seen": true,
+                        "level": 0,
+                        "max_level_bonus": 0,
+                        "rnd_sel_cnt": 0,
+                        "variants": [],
+                        "xp": 0
+                    },
+                    "templateId": "AthenaGlider:DefaultGlider"
+                },
                 "AthenaCharacter:cid_random": {
                     "templateId": "AthenaCharacter:cid_random",
                     "attributes": {
@@ -31820,12 +31939,11 @@
                     },
                     "quantity": 1
                 }
-                },
-                "commandRevision": 5
             },
-            "profileCommandRevision": 0,
-            "serverTime": "2024-12-08T02:24:12.396Z",
-            "responseVersion": 1
-        }
-    ]
+            "commandRevision": 5
+        },
+        "profileCommandRevision": 0,
+        "serverTime": "2024-12-08T02:24:12.396Z",
+        "responseVersion": 1
+    }]
 }

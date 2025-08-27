@@ -14,7 +14,7 @@
                 "profileId": "athena",
                 "version": "no_version",
                 "stats": {
-                "attributes": {
+                    "attributes": {
                     "season_match_boost": 0,
                     "loadouts": [],
                     "rested_xp_overflow": 0,
@@ -62,249 +62,141 @@
                     "favorite_itemwraps": [],
                     "favorite_character": "",
                     "favorite_loadingscreen": ""
-                }
+                    }
                 },
                 "items": {
-                "AthenaCharacter:CID_001_Athena_Commando_F_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_001_Athena_Commando_F_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_001_Athena_Commando_F_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_001_Athena_Commando_F_Default"
-                },
-                "AthenaCharacter:CID_002_Athena_Commando_F_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_002_Athena_Commando_F_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_002_Athena_Commando_F_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_002_Athena_Commando_F_Default"
-                },
-                "AthenaCharacter:CID_003_Athena_Commando_F_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_003_Athena_Commando_F_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_003_Athena_Commando_F_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_003_Athena_Commando_F_Default"
-                },
-                "AthenaCharacter:CID_004_Athena_Commando_F_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_004_Athena_Commando_F_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_004_Athena_Commando_F_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_004_Athena_Commando_F_Default"
-                },
-                "AthenaCharacter:CID_005_Athena_Commando_M_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_005_Athena_Commando_M_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_005_Athena_Commando_M_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_005_Athena_Commando_M_Default"
-                },
-                "AthenaCharacter:CID_006_Athena_Commando_M_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_006_Athena_Commando_M_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_006_Athena_Commando_M_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_006_Athena_Commando_M_Default"
-                },
-                "AthenaCharacter:CID_007_Athena_Commando_M_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_007_Athena_Commando_M_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_007_Athena_Commando_M_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_007_Athena_Commando_M_Default"
-                },
-                "AthenaCharacter:CID_008_Athena_Commando_M_Default": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaCharacter:CID_008_Athena_Commando_M_Default": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaCharacter:CID_008_Athena_Commando_M_Default"
                     },
-                    "templateId": "AthenaCharacter:CID_008_Athena_Commando_M_Default"
-                },
-                "AthenaCharacter:CID_556_Athena_Commando_F_RebirthDefaultA": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaPickaxe:DefaultPickaxe": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaPickaxe:DefaultPickaxe"
                     },
-                    "templateId": "AthenaCharacter:CID_556_Athena_Commando_F_RebirthDefaultA"
-                },
-                "AthenaCharacter:CID_557_Athena_Commando_F_RebirthDefaultB": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
+                    "AthenaGlider:DefaultGlider": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaGlider:DefaultGlider"
                     },
-                    "templateId": "AthenaCharacter:CID_557_Athena_Commando_F_RebirthDefaultB"
-                },
-                "AthenaCharacter:CID_558_Athena_Commando_F_RebirthDefaultC": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaCharacter:CID_558_Athena_Commando_F_RebirthDefaultC"
-                },
-                "AthenaCharacter:CID_559_Athena_Commando_F_RebirthDefaultD": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaCharacter:CID_559_Athena_Commando_F_RebirthDefaultD"
-                },
-                "AthenaCharacter:CID_560_Athena_Commando_M_RebirthDefaultA": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaCharacter:CID_560_Athena_Commando_M_RebirthDefaultA"
-                },
-                "AthenaCharacter:CID_561_Athena_Commando_M_RebirthDefaultB": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaCharacter:CID_561_Athena_Commando_M_RebirthDefaultB"
-                },
-                "AthenaCharacter:CID_562_Athena_Commando_M_RebirthDefaultC": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaCharacter:CID_562_Athena_Commando_M_RebirthDefaultC"
-                },
-                "AthenaCharacter:CID_563_Athena_Commando_M_RebirthDefaultD": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaCharacter:CID_563_Athena_Commando_M_RebirthDefaultD"
-                },
-                "AthenaCharacter:cid_a_272_athena_commando_f_prime": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaCharacter:cid_a_272_athena_commando_f_prime"
-                },
-                "AthenaPickaxe:DefaultPickaxe": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaPickaxe:DefaultPickaxe"
-                },
-                "AthenaGlider:DefaultGlider": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaGlider:DefaultGlider"
-                },
-                "AthenaDance:EID_DanceMoves": {
-                    "attributes": {
-                        "favorite": false,
-                        "item_seen": true,
-                        "level": 0,
-                        "max_level_bonus": 0,
-                        "rnd_sel_cnt": 0,
-                        "variants": [],
-                        "xp": 0
-                    },
-                    "templateId": "AthenaDance:EID_DanceMoves"
-                }
+                    "AthenaDance:EID_DanceMoves": {
+                        "attributes": {
+                            "favorite": false,
+                            "item_seen": true,
+                            "level": 0,
+                            "max_level_bonus": 0,
+                            "rnd_sel_cnt": 0,
+                            "variants": [],
+                            "xp": 0
+                        },
+                        "templateId": "AthenaDance:EID_DanceMoves"
+                    }
                 },
                 "commandRevision": 5
             },
