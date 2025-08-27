@@ -2,91 +2,69 @@
     "profileRevision": 1,
     "profileId": "athena",
     "profileChangesBaseRevision": 1,
-    "profileChanges": [{
-        "changeType": "fullProfileUpdate",
-        "profile": {
-            "created": "2018-04-06T00:42:48.010Z",
-            "updated": "2024-12-08T02:21:42.290Z",
-            "rvn": 1,
-            "wipeNumber": 1,
-            "accountId": "USER_ID",
-            "profileId": "athena",
-            "version": "",
-            "stats": {
+    "profileChanges": [
+        {
+            "changeType": "fullProfileUpdate",
+            "profile": {
+                "created": "2018-04-06T00:42:48.010Z",
+                "updated": "2024-12-08T02:21:42.290Z",
+                "rvn": 1,
+                "wipeNumber": 1,
+                "accountId": "USER_ID",
+                "profileId": "athena",
+                "version": "no_version",
+                "stats": {
                 "attributes": {
-                    "season_num": 3,
-                    "season_update": 1,
                     "season_match_boost": 0,
-                    "season_friend_match_boost": 0,
-                    "inventory_limit_bonus": 0,
-                    "xp": 0,
-                    "book_purchased": false,
-                    "book_level": 1,
-                    "book_xp": 1,
-                    "battlestars": 0,
-                    "battlestars_season_total": 0,
-                    "style_points": 0,
-                    "lifetime_wins": 0,
-                    "level": 1,
-                    "accountLevel": 0,
-                    "mfa_reward_claimed": true,
-                    "active_loadout_index": 0,
-                    "last_applied_loadout": "",
-                    "purchased_bp_offers": [],
-                    "past_seasons": [],
                     "loadouts": [],
+                    "rested_xp_overflow": 0,
+                    "mfa_reward_claimed": true,
                     "quest_manager": {
                         "dailyLoginInterval": "0001-01-01T00:00:00.000Z",
                         "dailyQuestRerolls": 1
                     },
+                    "book_level": 1,
+                    "season_num": 16,
+                    "season_update": 1,
+                    "book_xp": 1,
+                    "permissions": [],
+                    "book_purchased": false,
+                    "lifetime_wins": 0,
                     "party_assist_quest": "",
-                    "pinned_quest": "",
-                    "daily_rewards": {
-                        "nextDefaultReward": 0,
-                        "totalDaysLoggedIn": 0,
-                        "lastClaimDate": "0001-01-01T00:00:00.000Z",
-                        "additionalSchedules": {
-                            "founderspackdailyrewardtoken": {
-                                "rewardsClaimed": 0,
-                                "claimedToday": true
-                            }
-                        }
-                    },
-                    "favorite_victorypose": "",
-                    "favorite_consumableemote": "",
-                    "favorite_callingcard": "",
-                    "favorite_character": "",
-                    "favorite_spray": [],
-                    "favorite_loadingscreen": "",
-                    "favorite_hat": "",
-                    "favorite_battlebus": "",
-                    "favorite_mapmarker": "",
-                    "favorite_vehicledeco": "",
+                    "purchased_battle_pass_tier_offers": [],
+                    "rested_xp_exchange": 0.333,
+                    "level": 1,
+                    "xp_overflow": 0,
+                    "rested_xp": 0,
+                    "rested_xp_mult": 0,
+                    "accountLevel": 0,
+                    "competitive_identity": {},
+                    "inventory_limit_bonus": 0,
+                    "last_applied_loadout": "",
+                    "daily_rewards": {},
+                    "xp": 0,
+                    "season_friend_match_boost": 1,
+                    "active_loadout_index": 1,
+                    "favorite_musicpack": "",
+                    "favorite_glider": "",
+                    "favorite_pickaxe": "",
+                    "favorite_skydivecontrail": "",
                     "favorite_backpack": "",
+                    "pinned_quest": "",
                     "favorite_dance": [
-                        "AthenaDance:eid_dancemoves",
+                        "",
                         "",
                         "",
                         "",
                         "",
                         ""
                     ],
-                    "favorite_skydivecontrail": "",
-                    "favorite_pickaxe": "AthenaPickaxe:defaultpickaxe",
-                    "favorite_glider": "AthenaGlider:defaultglider",
-                    "favorite_musicpack": "",
                     "favorite_itemwraps": [],
-                    "rested_xp_overflow": 0,
-                    "permissions": [],
-                    "purchased_battle_pass_tier_offers": [],
-                    "rested_xp_exchange": 0.333,
-                    "xp_overflow": 0,
-                    "rested_xp": 0,
-                    "rested_xp_mult": 0,
-                    "competitive_identity": {}
+                    "favorite_character": "",
+                    "favorite_loadingscreen": ""
                 }
-            },
-            "items": {
+                },
+                "items": {
                 "AthenaCharacter:cid_random": {
                     "templateId": "AthenaCharacter:cid_random",
                     "attributes": {
@@ -31842,10 +31820,11 @@
                     },
                     "quantity": 1
                 }
-            }
-        },
-        "profileCommandRevision": 0,
-        "serverTime": "2024-12-08T02:24:12.396Z",
-        "responseVersion": 1
-    }]
+                }
+            },
+            "profileCommandRevision": 0,
+            "serverTime": "2024-12-08T02:24:12.396Z",
+            "responseVersion": 1
+        }
+    ]
 }

@@ -6,14 +6,14 @@
         {
             "changeType": "fullProfileUpdate",
             "profile": {
-            "created": "2018-04-06T00:42:48.010Z",
-            "updated": "2024-12-08T02:21:42.290Z",
-            "rvn": 1,
-            "wipeNumber": 1,
-            "accountId": "USER_ID",
-            "profileId": "athena",
-            "version": "no_version",
-            "stats": {
+                "created": "2018-04-06T00:42:48.010Z",
+                "updated": "2024-12-08T02:21:42.290Z",
+                "rvn": 1,
+                "wipeNumber": 1,
+                "accountId": "USER_ID",
+                "profileId": "athena",
+                "version": "no_version",
+                "stats": {
                 "attributes": {
                     "season_match_boost": 0,
                     "loadouts": [],
@@ -63,8 +63,8 @@
                     "favorite_character": "",
                     "favorite_loadingscreen": ""
                 }
-            },
-            "items": {
+                },
+                "items": {
                 "AthenaCharacter:CID_001_Athena_Commando_F_Default": {
                     "attributes": {
                         "favorite": false,
@@ -305,8 +305,8 @@
                     },
                     "templateId": "AthenaDance:EID_DanceMoves"
                 }
-            },
-            "commandRevision": 5
+                },
+                "commandRevision": 5
             },
             "profileCommandRevision": 0,
             "serverTime": "2024-12-08T02:24:12.396Z",

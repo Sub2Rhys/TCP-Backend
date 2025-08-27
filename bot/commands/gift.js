@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { addItem } = require('../../backend/functions/profile');
 const { itemIdValidator } = require('../../backend/functions/validation');
-const { requireAdmin, validateUser, createResponse, extractOptions, RESPONSES } = require('../utils/helper');
+const { validateUser, createResponse, extractOptions, RESPONSES } = require('../utils/helper');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -34,7 +34,21 @@ module.exports = {
         const { username, item, alert = false } = options;
         const message = 'Thanks for playing Fortnite!';
 
-        if (!(await requireAdmin(interaction))) return;
+        if (!username) {
+            targetUser = await validateAccount(interaction, true);
+            if (!targetUser) return;
+        } else {
+            targetUser = await validateUser(interaction, username);
+            if (!targetUser) return;
+            
+            if (targetUser.userId !== currentUserId && !isUserAdmin) {
+                return createResponse(interaction, {
+                    color: 'Red',
+                    title: 'Access Denied',
+                    description: 'You can only modify your own account.'
+                });
+            }
+        }
 
         const user = await validateUser(interaction, username);
         if (!user) return;
