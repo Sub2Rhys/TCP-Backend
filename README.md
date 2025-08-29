@@ -62,7 +62,7 @@ Currently only made for chapter 1 versions.
 - [SSL certificates](https://zerossl.com/) (Must be trusted by Fortnite for it to work, use ZeroSSL)
 
 ## SSL Certificates
-### Do NOT use a wildcard certificate, I haven't tested with them but I've been told they won't work and also ZeroSSL will make you pay to get one. Do the bare minimum in the setup for ZeroSSL, don't tick any extra boxes as it's likely going to try charge you.
+### Do NOT use a wildcard certificate, I've been told they won't work with this and ZeroSSL charges to get them. Also don't tick any extra boxes in the ZeroSSL setup as it will likely try charging you.
 
 You will need your own domain for this, I won't be covering how to get one in this guide but it's easy to find one and often you can get them for insanely cheap. I got mine from [123-Reg](https://www.123-reg.co.uk/) and recommend it if you're cheap like me.
 
@@ -251,6 +251,7 @@ class Handlers
     }
 }
 ```
+
 
 
 
