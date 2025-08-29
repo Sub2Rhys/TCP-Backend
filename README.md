@@ -62,6 +62,8 @@ Currently only made for chapter 1 versions.
 - [SSL certificates](https://zerossl.com/) (Must be trusted by Fortnite for it to work, use ZeroSSL)
 
 ## SSL Certificates
+### Do NOT use a wildcard certificate, I haven't tested with them but I've been told they won't work and also ZeroSSL will make you pay to get one. Do the bare minimum in the setup for ZeroSSL, don't tick any extra boxes as it's likely going to try charge you.
+
 You will need your own domain for this, I won't be covering how to get one in this guide but it's easy to find one and often you can get them for insanely cheap. I got mine from [123-Reg](https://www.123-reg.co.uk/) and recommend it if you're cheap like me.
 
 After obtaining a domain, go to [ZeroSSL](https://zerossl.com/) and request a certificate for a subdomain. Follow the steps to verify you own the domain and then you will be granted the certificates. You'll end up with three files called `ca_bundle.crt`, `certificate.crt` and `private.key`. You'll need these for later when we setup Openfire.
@@ -249,6 +251,7 @@ class Handlers
     }
 }
 ```
+
 
 
 
