@@ -4,7 +4,7 @@
 
 The purpose for this backend was purely for testing XMPP/TCP connections on older builds, this backend is NOT optimised or 1:1 to the real Fortnite servers, so it probably has a few bugs.
 
-This backend was made for [FMP Reborn](https://discord.gg/run22HRWn9), an OG Fortnite hosting server, but was released publicly to show how XMPP/TCP works on older builds. With this release, I hope to see this utilised by other projects so playing S1-S3 builds can feel more authentic to the original experience.
+This backend was released publicly to show how XMPP/TCP works on older builds. With this release, I hope to see this utilised by other projects so playing S1-S3 builds can feel more authentic to the original experience.
 
 Thanks to the people behind [LawinServerV2](https://github.com/Lawin0129/LawinServerV2) and [Reload](https://github.com/Project-Reload/Reload-Backend) for their work in allowing old Fortnite to still be accessible, this backend is inspired by them and uses small parts of their code to make this backend function to the extent it does.
 
@@ -251,6 +251,7 @@ class Handlers
     }
 }
 ```
+
 
 
 
