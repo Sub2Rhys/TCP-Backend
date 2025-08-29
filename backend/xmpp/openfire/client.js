@@ -96,10 +96,17 @@ global.commands = new Map();
                     const args = body.slice(1).trim().split(/ +/);
                     const commandName = args.shift().toLowerCase();
                     const command = global.commands.get(commandName);
-
+                                
+                    const roomJID = from.split('/')[0];
+                                
                     if (command) {
                         try {
-                            await command.execute({ client: adminXmpp, args, userId });
+                            await command.execute({ 
+                                client: adminXmpp, 
+                                args, 
+                                userId,
+                                roomJID
+                            });
                         } catch {}
                     }
                 }
