@@ -47,7 +47,7 @@ app.get('/fortnite/api/game/v2/matchmaking/account/:accountId/session/:sessionId
 });
 
 app.get('/fortnite/api/matchmaking/session/:sessionId', requireAuth, async (req, res) => {
-    const key = global.keys?.[req.user.userId];
+    const key = keys?.[req.user.userId] || global.keys?.[req.user.userId];
     const customKeys = await Matchmaking.findOne({ key });
 
     if (!keys && key) {
