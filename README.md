@@ -41,7 +41,7 @@ Currently only made for chapter 1 versions.
 - [x] Purchasing tiers
 
 ## Others
-- [x] Settings save (On PC at least)
+- [x] Settings save (Only on PC)
 - [x] News tab (Can be changed per hoster)
 - [x] Custom matchmaking keys (/key command for S1-S2)
 
@@ -251,6 +251,7 @@ class Handlers
     }
 }
 ```
+
 
 
 
