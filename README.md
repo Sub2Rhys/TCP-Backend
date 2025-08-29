@@ -2,7 +2,7 @@
 
 ### This guide isn't perfect, it was done through a lot of testing and experimenting and definitely isn't the most efficient way to do this. Right now it's catered to this specific backend, but with some modifications it'll work with others.
 
-The purpose for this backend was purely for testing XMPP/TCP connections on older builds, this backend is NOT optimised or 1:1 to the real Fortnite servers, so it probably has a few bugs.
+The purpose for this backend was purely for testing XMPP/TCP connections on older builds, this backend is NOT optimised or 1:1 to the real Fortnite servers, so it has a fair amount of bugs.
 
 This backend was released publicly to show how XMPP/TCP works on older builds. With this release, I hope to see this utilised by other projects so playing S1-S3 builds can feel more authentic to the original experience.
 
@@ -251,6 +251,7 @@ class Handlers
     }
 }
 ```
+
 
 
 
