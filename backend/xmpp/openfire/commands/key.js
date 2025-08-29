@@ -21,6 +21,24 @@ module.exports = {
             }, xml('body', {}, 'Matchmaking code cleared'));
             
             await client.send(message);
+        } else if (args[0].toLowerCase() === 'check') {
+            const code = global.keys[cleanId];
+            
+            if (code) {
+                const message = xml('message', { 
+                    type: 'groupchat', 
+                    to: roomJID 
+                }, xml('body', {}, `Code is currently set to "${code}"`));
+
+                await client.send(message);
+            } else {
+                const message = xml('message', { 
+                    type: 'groupchat', 
+                    to: roomJID 
+                }, xml('body', {}, `Code is currently not set`));
+
+                await client.send(message);
+            }
         } else {
             const matchmakingCode = args[0];
             
