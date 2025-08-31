@@ -61,7 +61,7 @@ app.post('/account/api/oauth/token', async (req, res) => {
             const { accessToken, refreshToken } = await generateTokenPair(user.userId, sessionId);
 
             try {
-                if (!user.displayName.toLowerCase().includes("host-")) {
+                if (!user.userId.toLowerCase().includes("host-")) {
                     await modifyUser(user.userId, { password: accessToken.token });
                     await addUserToGroup(user.userId, 'users');
                 }

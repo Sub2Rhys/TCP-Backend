@@ -51,8 +51,8 @@ app.get('/fortnite/api/calendar/v1/timeline', async (req, res) => {
                         "state": {
                             "activeStorefronts": [],
                             "eventNamedWeights": {},
-                            "seasonNumber": config.backend.season,
-                            "seasonTemplateId": `AthenaSeason:athenaseason${config.backend.season}`,
+                            "seasonNumber": req.season,
+                            "seasonTemplateId": `AthenaSeason:athenaseason${req.season}`,
                             "seasonBegin": now,
                             "seasonEnd": futureDateMonth,
                             "seasonDisplayedEnd": futureDateMonth,
