@@ -1,3 +1,6 @@
+# ⚠️ THIS PROJECT IS NOT MAINTAINED ANYMORE ⚠️
+I haven't worked on this properly in months, we've created a [standalone TCP service](https://github.com/TCP-Service/XMPP-Service) that cuts out any OpenFire steps, I may update TCP-Backend one day to use this instead. 
+
 # Read Before Starting
 
 ### This guide isn't perfect, it was done through a lot of testing and experimenting and definitely isn't the most efficient way to do this. Right now it's catered to this specific backend, but with some modifications it'll work with others.
@@ -251,6 +254,7 @@ class Handlers
     }
 }
 ```
+
 
 
 
