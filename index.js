@@ -39,8 +39,6 @@ const { getVersion } = require('./middleware/version');
 app.use(getVersion);
 
 app.use('/', require('./dashboard/index'));
-require('./backend/xmpp/xmpp');
-require('./backend/xmpp/matchmaker');
 require('./bot/index');
 
 const endpoints = fs.readdirSync('./backend/routes');

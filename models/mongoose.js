@@ -19,6 +19,7 @@ const Friends = require('./Friends');
 const Matchmaking = require('./Matchmaking');
 const Tokens = require('./Tokens');
 const Servers = require('./Servers');
+const Code = require('./Code');
 
 module.exports = {
     mongoDB,
@@ -28,5 +29,6 @@ module.exports = {
     Friends,
     Matchmaking,
     Tokens,
-    Servers
+    Servers,
+    Code
 };
